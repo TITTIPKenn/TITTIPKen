@@ -22,11 +22,19 @@
     <h2 id="name"></h2>
     <p id="price"></p>
 
-    <button id="btnICE" onclick="setType('ICE')">ICE</button>
-    <button id="btnHOT" onclick="setType('HOT')">HOT</button>
+    <div id="options">
+      <p>Type</p>
+      <button id="btnICE" onclick="setType('ICE')">ICE</button>
+      <button id="btnHOT" onclick="setType('HOT')">HOT</button>
 
-    <button id="btnR" onclick="setSize('R')">R</button>
-    <button id="btnL" onclick="setSize('L')">L</button>
+      <p>Size</p>
+      <button id="btnR" onclick="setSize('R')">R</button>
+      <button id="btnL" onclick="setSize('L')">L</button>
+
+      <p>Sugar</p>
+      <button id="btnNormal" onclick="setSugar('Normal')">Normal</button>
+      <button id="btnLess" onclick="setSugar('Less')">Less</button>
+    </div>
 
     <button onclick="addToCart()">➕ Tambah ke Keranjang</button>
 
