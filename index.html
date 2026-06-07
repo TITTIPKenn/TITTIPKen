@@ -13,13 +13,11 @@
   <div class="info-box">
     <h2>☕ Cara Order</h2>
 
-    <p>1️⃣ Isi nama pemesan</p>
-    <p>2️⃣ Isi lokasi / cabang pengambilan</p>
-    <p>3️⃣ Klik tombol START ORDER</p>
-    <p>4️⃣ Pilih menu yang diinginkan</p>
-    <p>5️⃣ Atur size, sugar, hot/ice</p>
-    <p>6️⃣ Tambahkan ke keranjang</p>
-    <p>7️⃣ Checkout WhatsApp</p>
+    <p>1️⃣ Klik START ORDER</p>
+    <p>2️⃣ Isi nama & lokasi</p>
+    <p>3️⃣ Pilih menu</p>
+    <p>4️⃣ Tambahkan ke keranjang</p>
+    <p>5️⃣ Checkout WhatsApp</p>
 
     <hr>
 
@@ -29,33 +27,15 @@
 
   <h1>☕🎀 TITTIPKen 🎀☕</h1>
 
-  <p class="tagline">
-    🍪 Fresh Everyday • ☕ Made With Love • 🌸 Ready To Order
-  </p>
-
-  <input id="nama" placeholder="Nama kamu">
-  <input id="lokasi" placeholder="Lokasi Kopi Kenangan Kamu">
-
-  <button class="start-btn" onclick="start()">
+  <button class="start-btn" onclick="goNext()">
     ✨ START ORDER ✨
   </button>
 
 </div>
 
 <script>
-function start() {
-  let nama = document.getElementById("nama").value.trim();
-  let lokasi = document.getElementById("lokasi").value.trim();
-
-  if (!nama || !lokasi) {
-    alert("Isi nama & lokasi dulu ya 😭☕");
-    return;
-  }
-
-  localStorage.setItem("nama", nama);
-  localStorage.setItem("lokasi", lokasi);
-
-  window.location.href = "menu.html";
+function goNext() {
+  window.location.href = "login.html";
 }
 </script>
 
