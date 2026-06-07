@@ -12,20 +12,26 @@
 
   <h1>☕🎀 TITTIPKEN 🎀☕</h1>
 
-  <button class="start-btn" onclick="goNext()">
-    ✨ START ORDER ✨
-  </button>
+  <!-- BUTTON ROW (START + TESTI) -->
+  <div class="btn-row">
 
+    <button class="start-btn" onclick="goNext()">
+      ✨ START ORDER
+    </button>
+
+    <button class="testi-btn" onclick="goTesti()">
+      ⭐ TESTIMONI
+    </button>
+
+  </div>
 
   <div class="info-box">
 
     <h2>🕒 JAM OPERASIONAL</h2>
     <p>08.00 - 22.00 WIB</p>
 
-
     <p>⚠️ Minimal order 2 item ya bess😭🤎</p>
     <p>(Bebas mix menu ☕🍪)</p>
-
 
     <h2>☕ CARA ORDER</h2>
 
@@ -42,6 +48,10 @@
 <script>
 function goNext() {
   window.location.href = "login.html";
+}
+
+function goTesti() {
+  window.location.href = "testimoni.html";
 }
 </script>
 
