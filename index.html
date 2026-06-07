@@ -3,44 +3,35 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Menu TITTIPKen</title>
+  <title>Coffee Order</title>
   <link rel="stylesheet" href="style.css">
 </head>
 <body>
 
-<h1>☕ Menu TITTIPKen</h1>
+<div class="home">
+  <h1>☕ Coffee Order</h1>
 
-<input id="search" placeholder="Cari menu..." oninput="renderMenu()" />
+  <input id="nama" placeholder="Nama kamu">
+  <input id="lokasi" placeholder="Lokasi / cabang / alamat">
 
-<div id="menu" class="menu"></div>
-
-<!-- POPUP -->
-<div id="popup" class="popup hidden">
-  <div class="box">
-
-    <h2 id="name"></h2>
-    <p id="price"></p>
-
-    <div class="section">
-      <p>Type:</p>
-      <button id="btnICE" onclick="setType('ICE')">ICE</button>
-      <button id="btnHOT" onclick="setType('HOT')">HOT</button>
-    </div>
-
-    <div class="section">
-      <p>Size:</p>
-      <button id="btnR" onclick="setSize('R')">REGULAR</button>
-      <button id="btnL" onclick="setSize('L')">LARGE</button>
-    </div>
-
-    <br>
-
-    <button onclick="order()">📲 Pesan WhatsApp</button>
-    <button onclick="closeMenu()">Tutup</button>
-
-  </div>
+  <button onclick="start()">Masuk Menu</button>
 </div>
 
-<script src="script.js"></script>
+<script>
+function start() {
+  let nama = document.getElementById("nama").value;
+  let lokasi = document.getElementById("lokasi").value;
+
+  if (!nama || !lokasi) {
+    return alert("Isi nama & lokasi dulu!");
+  }
+
+  localStorage.setItem("nama", nama);
+  localStorage.setItem("lokasi", lokasi);
+
+  window.location.href = "menu.html";
+}
+</script>
+
 </body>
 </html>
