@@ -3,7 +3,7 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Menu Order</title>
+  <title>Menu</title>
   <link rel="stylesheet" href="style.css">
 </head>
 <body>
@@ -11,61 +11,33 @@
 <h2 id="user"></h2>
 <p id="store"></p>
 
-<input id="search" placeholder="Cari menu..." oninput="renderMenu()" />
+<input id="search" placeholder="Cari menu..." oninput="renderMenu()">
 
 <div id="menu" class="menu"></div>
 
-<!-- =======================
-     POPUP DETAIL MENU
-======================= -->
+<!-- POPUP WAJIB HIDDEN -->
 <div id="popup" class="popup hidden">
-
   <div class="box">
 
     <h2 id="name"></h2>
     <p id="price"></p>
 
-    <!-- OPTIONS (DRINK ONLY) -->
-    <div id="options">
-
-      <p>Type</p>
-      <button id="btnICE" onclick="setType('ICE')">ICE</button>
-      <button id="btnHOT" onclick="setType('HOT')">HOT</button>
-
-      <p>Size</p>
-      <button id="btnR" onclick="setSize('R')">R</button>
-      <button id="btnL" onclick="setSize('L')">L</button>
-
-      <p>Sugar</p>
-      <button id="btnNormal" onclick="setSugar('Normal')">Normal</button>
-      <button id="btnLess" onclick="setSugar('Less')">Less</button>
-
-    </div>
-
-    <button onclick="addToCart()">➕ Tambah ke Keranjang</button>
-
-    <hr>
-
-    <h3>🛒 Keranjang</h3>
-    <div id="cart"></div>
-
-    <p>Total: Rp <span id="total">0</span></p>
-
-    <button onclick="checkout()">Checkout WhatsApp</button>
-    <button onclick="closeMenu()">Tutup</button>
+    <button onclick="closeMenu()">❌ Close</button>
 
   </div>
-
 </div>
 
 <script src="script.js"></script>
 
 <script>
 document.getElementById("user").innerText =
-  "Halo, " + localStorage.getItem("nama");
+  "Halo, " + (localStorage.getItem("nama") || "");
 
 document.getElementById("store").innerText =
-  "📍 " + localStorage.getItem("lokasi");
+  "📍 " + (localStorage.getItem("lokasi") || "");
+
+// 🔥 IMPORTANT: PASTIKAN TIDAK ADA AUTO OPEN
+console.log("menu loaded");
 </script>
 
 </body>
