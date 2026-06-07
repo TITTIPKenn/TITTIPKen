@@ -6,13 +6,13 @@ let current = {
   sugar: "Normal",
   Rprice: 0,
   Lprice: 0,
-  category: "drink"
+  category: ""
 };
 
 let cart = [];
 
 /* =========================
-   MENU DATA (FULL FIX)
+   FULL MENU DATA
 ========================= */
 
 const menuData = [
@@ -105,7 +105,7 @@ const menuData = [
 
 function renderMenu() {
   let menu = document.getElementById("menu");
-  let search = document.getElementById("search").value?.toLowerCase() || "";
+  let search = document.getElementById("search").value.toLowerCase();
 
   menu.innerHTML = "";
 
@@ -130,7 +130,7 @@ function renderMenu() {
 }
 
 /* =========================
-   OPEN MENU
+   OPEN POPUP
 ========================= */
 
 function openMenu(name, R, L, category) {
@@ -153,32 +153,61 @@ function openMenu(name, R, L, category) {
   document.getElementById("name").innerText = name;
   document.getElementById("price").innerText = "Rp" + current.price;
 
+  resetButtons();
   renderCart();
 }
 
 /* =========================
-   OPTION DRINK ONLY
+   RESET BUTTON STYLE
 ========================= */
 
-function setType(type) {
-  current.type = type;
-}
-
-function setSize(size) {
-  current.size = size;
-
-  if (size === "R") current.price = current.Rprice;
-  else current.price = current.Lprice;
-
-  document.getElementById("price").innerText = "Rp" + current.price;
-}
-
-function setSugar(type) {
-  current.sugar = type;
+function resetButtons() {
+  document.querySelectorAll("button").forEach(b => b.classList.remove("active"));
 }
 
 /* =========================
-   CART
+   CLOSE POPUP
+========================= */
+
+function closeMenu() {
+  document.getElementById("popup").classList.add("hidden");
+}
+
+/* =========================
+   OPTIONS (DRINK ONLY)
+========================= */
+
+function setType(t) {
+  current.type = t;
+
+  document.getElementById("btnICE").classList.remove("active");
+  document.getElementById("btnHOT").classList.remove("active");
+  document.getElementById(t === "ICE" ? "btnICE" : "btnHOT").classList.add("active");
+}
+
+function setSize(s) {
+  current.size = s;
+
+  if (s === "R") current.price = current.Rprice;
+  else current.price = current.Lprice;
+
+  document.getElementById("price").innerText = "Rp" + current.price;
+
+  document.getElementById("btnR").classList.remove("active");
+  document.getElementById("btnL").classList.remove("active");
+  document.getElementById(s === "R" ? "btnR" : "btnL").classList.add("active");
+}
+
+function setSugar(s) {
+  current.sugar = s;
+
+  document.getElementById("btnNormal").classList.remove("active");
+  document.getElementById("btnLess").classList.remove("active");
+  document.getElementById(s === "Normal" ? "btnNormal" : "btnLess").classList.add("active");
+}
+
+/* =========================
+   CART SYSTEM
 ========================= */
 
 function addToCart() {
@@ -186,17 +215,23 @@ function addToCart() {
   renderCart();
 }
 
+function removeItem(i) {
+  cart.splice(i, 1);
+  renderCart();
+}
+
 function renderCart() {
   let html = "";
   let total = 0;
 
-  cart.forEach(item => {
+  cart.forEach((item, i) => {
     total += item.price;
 
     html += `
       <div>
         ${item.name} - Rp${item.price}
         ${item.category !== "Cemilan" ? `(${item.type}, ${item.size}, ${item.sugar})` : ""}
+        <button onclick="removeItem(${i})">❌</button>
       </div>
     `;
   });
