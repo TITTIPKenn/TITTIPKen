@@ -1,71 +1,188 @@
-<!DOCTYPE html>
-<html>
-<head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Menu Order</title>
-  <link rel="stylesheet" href="style.css">
-</head>
-<body>
+let current = {
+  name: "",
+  price: 0,
+  type: "ICE",
+  size: "R",
+  sugar: "Normal",
+  Rprice: 0,
+  Lprice: 0,
+  category: ""
+};
 
-<h2 id="user"></h2>
-<p id="store"></p>
+let cart = [];
 
-<input id="search" placeholder="Cari menu..." oninput="renderMenu()">
+/* ================= MENU DATA ================= */
 
-<div id="menu" class="menu"></div>
+const menuData = [
+  {
+    category: "Coffee",
+    items: [
+      { name: "Latte", R: 17500, L: 21500 },
+      { name: "Americano", R: 15000, L: 18500 }
+    ]
+  },
+  {
+    category: "Cemilan",
+    items: [
+      { name: "Choco Muffin", price: 13000 },
+      { name: "Butter Croissant", price: 12000 }
+    ]
+  }
+];
 
-<!-- ===================== POPUP ===================== -->
-<div id="popup" class="popup hidden" onclick="closeMenu()">
+/* ================= RENDER MENU ================= */
 
-  <div class="box" onclick="event.stopPropagation()">
+function renderMenu() {
+  let menu = document.getElementById("menu");
+  let search = document.getElementById("search").value.toLowerCase();
 
-    <h2 id="name"></h2>
-    <p id="price"></p>
+  menu.innerHTML = "";
 
-    <!-- OPTIONS (WAJIB ADA) -->
-    <div id="options">
+  menuData.forEach(section => {
+    let items = section.items.filter(i =>
+      i.name.toLowerCase().includes(search)
+    );
 
-      <p>Type</p>
-      <button id="btnICE" onclick="setType('ICE')">ICE</button>
-      <button id="btnHOT" onclick="setType('HOT')">HOT</button>
+    if (items.length === 0) return;
 
-      <p>Size</p>
-      <button id="btnR" onclick="setSize('R')">R</button>
-      <button id="btnL" onclick="setSize('L')">L</button>
+    menu.innerHTML += `<h3>${section.category}</h3>`;
 
-      <p>Sugar</p>
-      <button id="btnNormal" onclick="setSugar('Normal')">Normal</button>
-      <button id="btnLess" onclick="setSugar('Less')">Less</button>
+    items.forEach(m => {
+      menu.innerHTML += `
+        <div class="card" onclick="openMenu('${m.name}', ${m.R || m.price}, ${m.L || m.price}, '${section.category}')">
+          <h4>${m.name}</h4>
+          <p>Rp${m.R || m.price}</p>
+        </div>
+      `;
+    });
+  });
+}
 
-    </div>
+/* ================= OPEN POPUP ================= */
 
-    <button onclick="addToCart()">➕ Tambah ke Keranjang</button>
+function openMenu(name, R, L, category) {
 
-    <hr>
+  current.name = name;
+  current.category = category;
 
-    <h3>🛒 Keranjang</h3>
-    <div id="cart"></div>
+  if (category === "Cemilan") {
+    current.price = R;
+  } else {
+    current.Rprice = R;
+    current.Lprice = L;
+    current.price = R;
+  }
 
-    <p>Total: Rp <span id="total">0</span></p>
+  current.type = "ICE";
+  current.size = "R";
+  current.sugar = "Normal";
 
-    <button onclick="checkout()">Checkout WhatsApp</button>
+  document.getElementById("popup").classList.remove("hidden");
+  document.getElementById("name").innerText = name;
+  document.getElementById("price").innerText = "Rp" + current.price;
 
-    <button onclick="closeMenu()">❌ Close</button>
+  resetButtons();
+  renderCart();
+}
 
-  </div>
+/* ================= CLOSE ================= */
 
-</div>
+function closeMenu() {
+  document.getElementById("popup").classList.add("hidden");
+}
 
-<script src="script.js"></script>
+/* ================= OPTIONS ================= */
 
-<script>
-document.getElementById("user").innerText =
-  "Halo, " + (localStorage.getItem("nama") || "");
+function setType(t) {
+  current.type = t;
+  resetButtons();
+  document.getElementById(t === "ICE" ? "btnICE" : "btnHOT").classList.add("active");
+}
 
-document.getElementById("store").innerText =
-  "📍 " + (localStorage.getItem("lokasi") || "");
-</script>
+function setSize(s) {
+  current.size = s;
 
-</body>
-</html>
+  if (s === "R") current.price = current.Rprice;
+  else current.price = current.Lprice;
+
+  document.getElementById("price").innerText = "Rp" + current.price;
+
+  document.getElementById("btnR").classList.remove("active");
+  document.getElementById("btnL").classList.remove("active");
+  document.getElementById(s === "R" ? "btnR" : "btnL").classList.add("active");
+}
+
+function setSugar(s) {
+  current.sugar = s;
+
+  document.getElementById("btnNormal").classList.remove("active");
+  document.getElementById("btnLess").classList.remove("active");
+  document.getElementById(s === "Normal" ? "btnNormal" : "btnLess").classList.add("active");
+}
+
+/* ================= RESET BUTTON ================= */
+
+function resetButtons() {
+  document.querySelectorAll("button").forEach(b => b.classList.remove("active"));
+}
+
+/* ================= CART ================= */
+
+function addToCart() {
+  cart.push({ ...current });
+  renderCart();
+}
+
+function renderCart() {
+  let html = "";
+  let total = 0;
+
+  cart.forEach((item, i) => {
+    total += item.price;
+
+    html += `
+      <div>
+        ${item.name} - Rp${item.price}
+        ${item.category !== "Cemilan" ? `(${item.type}, ${item.size}, ${item.sugar})` : ""}
+        <button onclick="removeItem(${i})">❌</button>
+      </div>
+    `;
+  });
+
+  document.getElementById("cart").innerHTML = html;
+  document.getElementById("total").innerText = total;
+}
+
+function removeItem(i) {
+  cart.splice(i, 1);
+  renderCart();
+}
+
+/* ================= CHECKOUT ================= */
+
+function checkout() {
+  if (cart.length === 0) return alert("Keranjang kosong!");
+
+  let nama = localStorage.getItem("nama");
+  let lokasi = localStorage.getItem("lokasi");
+
+  let msg = `Nama: ${nama}\nLokasi: ${lokasi}\n\n`;
+
+  cart.forEach(item => {
+    msg += `☕ ${item.name} - Rp${item.price}`;
+    if (item.category !== "Cemilan") {
+      msg += ` (${item.type}, ${item.size}, ${item.sugar})`;
+    }
+    msg += "\n";
+  });
+
+  let total = cart.reduce((a, b) => a + b.price, 0);
+  msg += `\nTOTAL: Rp${total}`;
+
+  let wa = "https://wa.me/628XXXXXXXXXX?text=" + encodeURIComponent(msg);
+  window.open(wa);
+}
+
+/* ================= INIT ================= */
+
+renderMenu();
