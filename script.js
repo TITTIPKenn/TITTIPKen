@@ -2,7 +2,9 @@ let current = {
   name: "",
   price: 0,
   type: "ICE",
-  size: "R"
+  size: "R",
+  Rprice: 0,
+  Lprice: 0
 };
 
 const menuData = [
@@ -63,7 +65,11 @@ function renderMenu() {
 
 function openMenu(name, R, L) {
   current.name = name;
-  current.price = current.size === "R" ? R : L;
+  current.Rprice = R;
+  current.Lprice = L;
+
+  current.size = "R";
+  current.price = R;
 
   document.getElementById("name").innerText = name;
   document.getElementById("price").innerText = "Rp" + current.price;
@@ -81,6 +87,14 @@ function setType(type) {
 
 function setSize(size) {
   current.size = size;
+
+  if (size === "R") {
+    current.price = current.Rprice;
+  } else {
+    current.price = current.Lprice;
+  }
+
+  document.getElementById("price").innerText = "Rp" + current.price;
 }
 
 function order() {
@@ -91,7 +105,7 @@ function order() {
 📏 ${current.size}
 💰 Rp${current.price}`;
 
-  let wa = "https://wa.me/6289633016767?text=" + encodeURIComponent(msg);
+  let wa = "https://wa.me/628XXXXXXXXXX?text=" + encodeURIComponent(msg);
   window.open(wa);
 }
 
