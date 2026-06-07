@@ -10,12 +10,12 @@
 
 <div class="home">
 
-  <h1>☕ Isi Data Dulu Bess</h1>
+  <h1>☕ Isi Data Dulu</h1>
 
   <input id="nama" placeholder="Nama kamu">
-  <input id="lokasi" placeholder="Lokasi Kopi Kenangan Kamu">
+  <input id="lokasi" placeholder="Lokasi / Cabang">
 
-  <button class="start-btn" onclick="startOrder()">
+  <button onclick="startOrder()">
     🚀 LANJUT KE MENU
   </button>
 
@@ -23,19 +23,27 @@
 
 <script>
 function startOrder() {
+
   let nama = document.getElementById("nama").value.trim();
   let lokasi = document.getElementById("lokasi").value.trim();
 
   if (!nama || !lokasi) {
-    alert("Isi dulu nama & lokasi 😭");
+    alert("Isi nama & lokasi dulu ya!");
     return;
   }
 
+  // simpan data
   localStorage.setItem("nama", nama);
   localStorage.setItem("lokasi", lokasi);
 
+  // IMPORTANT: pindah halaman
   window.location.href = "menu.html";
 }
+
+// 🔥 ANTI AUTO RUN BUG (INI PENTING BANGET)
+document.addEventListener("DOMContentLoaded", function () {
+  console.log("Login page ready");
+});
 </script>
 
 </body>
