@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Login Order</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+<div class="home">
+
+  <h1>☕ Isi Data Kamu</h1>
+
+  <input id="nama" placeholder="Nama kamu">
+  <input id="lokasi" placeholder="Lokasi / cabang">
+
+  <button class="start-btn" onclick="startOrder()">
+    🚀 LANJUT KE MENU
+  </button>
+
+</div>
+
+<script>
+function startOrder() {
+  let nama = document.getElementById("nama").value.trim();
+  let lokasi = document.getElementById("lokasi").value.trim();
+
+  if (!nama || !lokasi) {
+    alert("Isi dulu nama & lokasi 😭");
+    return;
+  }
+
+  localStorage.setItem("nama", nama);
+  localStorage.setItem("lokasi", lokasi);
+
+  window.location.href = "menu.html";
+}
+</script>
+
+</body>
+</html>
