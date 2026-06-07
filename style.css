@@ -90,7 +90,7 @@ input, select {
 .box {
   background: white;
 
-  width: 120px;
+  width: 340px;
   max-height: 90vh;
 
   overflow-y: auto;
