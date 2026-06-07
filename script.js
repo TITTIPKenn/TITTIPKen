@@ -1,8 +1,18 @@
-let current = {};
+let current = {
+  name: "",
+  price: 0,
+  type: "ICE",
+  size: "R",
+  sugar: "Normal",
+  Rprice: 0,
+  Lprice: 0,
+  category: ""
+};
+
 let cart = [];
 
 /* =========================
-   FULL MENU ASLI (TIDAK DIKURANGI)
+   FULL MENU DATA
 ========================= */
 
 const menuData = [
@@ -90,7 +100,7 @@ const menuData = [
 ];
 
 /* =========================
-   RENDER MENU (TETAP FULL)
+   RENDER MENU
 ========================= */
 
 function renderMenu() {
@@ -104,7 +114,7 @@ function renderMenu() {
       i.name.toLowerCase().includes(search)
     );
 
-    if (!items.length) return;
+    if (items.length === 0) return;
 
     menu.innerHTML += `<h3>${section.category}</h3>`;
 
@@ -120,7 +130,7 @@ function renderMenu() {
 }
 
 /* =========================
-   OPEN MENU (FIX CEMILAN ONLY)
+   OPEN POPUP
 ========================= */
 
 function openMenu(name, R, L, category) {
@@ -129,48 +139,42 @@ function openMenu(name, R, L, category) {
 
   if (category === "Cemilan") {
     current.price = R;
-
-    // ❌ penting: disable opsi minuman
-    current.type = null;
-    current.size = null;
-    current.sugar = null;
-
   } else {
     current.Rprice = R;
     current.Lprice = L;
     current.price = R;
-
-    current.type = "ICE";
-    current.size = "R";
-    current.sugar = "Normal";
   }
+
+  current.type = "ICE";
+  current.size = "R";
+  current.sugar = "Normal";
 
   document.getElementById("popup").classList.remove("hidden");
   document.getElementById("name").innerText = name;
   document.getElementById("price").innerText = "Rp" + current.price;
 
   resetButtons();
+  renderCart();
 }
 
 /* =========================
-   RESET BUTTON (SAFE FIX)
+   RESET BUTTON STYLE
 ========================= */
 
 function resetButtons() {
-  const ids = [
-    "btnICE","btnHOT",
-    "btnR","btnL",
-    "btnNormal","btnLess"
-  ];
-
-  ids.forEach(id => {
-    let el = document.getElementById(id);
-    if (el) el.classList.remove("active");
-  });
+  document.querySelectorAll("button").forEach(b => b.classList.remove("active"));
 }
 
 /* =========================
-   OPTIONS MINUMAN
+   CLOSE POPUP
+========================= */
+
+function closeMenu() {
+  document.getElementById("popup").classList.add("hidden");
+}
+
+/* =========================
+   OPTIONS (DRINK ONLY)
 ========================= */
 
 function setType(t) {
@@ -178,22 +182,20 @@ function setType(t) {
 
   document.getElementById("btnICE").classList.remove("active");
   document.getElementById("btnHOT").classList.remove("active");
-
-  document.getElementById(t === "ICE" ? "btnICE" : "btnHOT")
-    .classList.add("active");
+  document.getElementById(t === "ICE" ? "btnICE" : "btnHOT").classList.add("active");
 }
 
 function setSize(s) {
   current.size = s;
 
-  current.price = (s === "R") ? current.Rprice : current.Lprice;
+  if (s === "R") current.price = current.Rprice;
+  else current.price = current.Lprice;
+
   document.getElementById("price").innerText = "Rp" + current.price;
 
   document.getElementById("btnR").classList.remove("active");
   document.getElementById("btnL").classList.remove("active");
-
-  document.getElementById(s === "R" ? "btnR" : "btnL")
-    .classList.add("active");
+  document.getElementById(s === "R" ? "btnR" : "btnL").classList.add("active");
 }
 
 function setSugar(s) {
@@ -201,9 +203,7 @@ function setSugar(s) {
 
   document.getElementById("btnNormal").classList.remove("active");
   document.getElementById("btnLess").classList.remove("active");
-
-  document.getElementById(s === "Normal" ? "btnNormal" : "btnLess")
-    .classList.add("active");
+  document.getElementById(s === "Normal" ? "btnNormal" : "btnLess").classList.add("active");
 }
 
 /* =========================
@@ -230,10 +230,7 @@ function renderCart() {
     html += `
       <div>
         ${item.name} - Rp${item.price}
-        ${item.category === "Cemilan"
-          ? ""
-          : `(${item.type}, ${item.size}, ${item.sugar})`
-        }
+        ${item.category !== "Cemilan" ? `(${item.type}, ${item.size}, ${item.sugar})` : ""}
         <button onclick="removeItem(${i})">❌</button>
       </div>
     `;
@@ -244,11 +241,11 @@ function renderCart() {
 }
 
 /* =========================
-   CHECKOUT
+   CHECKOUT WA
 ========================= */
 
 function checkout() {
-  if (!cart.length) return alert("Keranjang kosong!");
+  if (cart.length === 0) return alert("Keranjang kosong!");
 
   let nama = localStorage.getItem("nama");
   let lokasi = localStorage.getItem("lokasi");
@@ -265,10 +262,11 @@ function checkout() {
     msg += "\n";
   });
 
-  let total = cart.reduce((a,b)=>a+b.price,0);
+  let total = cart.reduce((a, b) => a + b.price, 0);
   msg += `\nTOTAL: Rp${total}`;
 
-  window.open("https://wa.me/6289633016767?text=" + encodeURIComponent(msg));
+  let wa = "https://wa.me/6289633016767?text=" + encodeURIComponent(msg);
+  window.open(wa);
 }
 
 /* =========================
