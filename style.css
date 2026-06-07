@@ -1,3 +1,7 @@
+/* =====================
+   BASE
+===================== */
+
 body {
   font-family: Arial, sans-serif;
 
@@ -14,21 +18,17 @@ body {
 }
 
 /* =====================
-   HOME PAGE
+   HOME
 ===================== */
+
 .home {
-  margin-top: 120px;
-  padding: 20px;
+  margin-top: 100px;
 }
 
-/* =====================
-   INPUT (LOGIN PAGE)
-===================== */
-input, select {
+input {
   display: block;
   margin: 10px auto;
   padding: 12px;
-
   width: 240px;
 
   border-radius: 12px;
@@ -38,8 +38,9 @@ input, select {
 }
 
 /* =====================
-   MENU LIST
+   MENU GRID
 ===================== */
+
 .menu {
   display: grid;
   grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
@@ -50,7 +51,6 @@ input, select {
 .card {
   background: #fffdfb;
   padding: 12px;
-
   border-radius: 16px;
   cursor: pointer;
 
@@ -62,7 +62,6 @@ input, select {
 
 .card:hover {
   transform: translateY(-3px);
-  border-color: #ffb6c1;
 }
 
 .card:active {
@@ -70,8 +69,9 @@ input, select {
 }
 
 /* =====================
-   POPUP
+   POPUP FIX (INI PENTING)
 ===================== */
+
 .popup {
   position: fixed;
   top: 0;
@@ -85,16 +85,22 @@ input, select {
   display: flex;
   justify-content: center;
   align-items: center;
+
+  z-index: 9999;
 }
 
+/* 🔥 INI YANG WAJIB BIAR GAK AUTO KE BUKA */
+.hidden {
+  display: none !important;
+}
+
+/* BOX POPUP */
 .box {
   background: white;
-
   width: 340px;
   max-height: 90vh;
 
   overflow-y: auto;
-
   padding: 15px;
 
   border-radius: 16px;
@@ -103,69 +109,43 @@ input, select {
 }
 
 /* =====================
-   BUTTON GLOBAL
+   BUTTON
 ===================== */
+
 button {
-  margin: 6px;
+  margin: 4px;
   padding: 10px 12px;
 
   border: none;
-  border-radius: 12px;
+  border-radius: 10px;
 
   background: #ffe5ec;
   color: #6b3f2a;
 
   cursor: pointer;
   transition: 0.2s;
-  font-weight: bold;
 }
 
 button:hover {
   background: #ffd1dc;
-  transform: scale(1.05);
 }
 
 button:active {
   transform: scale(0.97);
 }
 
+/* 🔥 BUTTON ACTIVE FIX */
 button.active {
-  background: #6b3f2a;
-  color: white;
+  background: #6b3f2a !important;
+  color: white !important;
 }
 
 /* =====================
-   START + TESTIMONI BUTTON
+   CART FIX SCROLL
 ===================== */
-.btn-row {
-  display: flex;
-  justify-content: center;
-  gap: 12px;
-  margin-top: 15px;
-  flex-wrap: wrap;
-}
 
-.start-btn {
-  background: linear-gradient(135deg, #ffe5ec, #ffd6a5);
-  border: 2px solid #ffb6c1;
-  color: #6b3f2a;
-  padding: 12px 16px;
-  border-radius: 14px;
-}
-
-.testi-btn {
-  background: linear-gradient(135deg, #ffe5ec, #ffd6a5);
-  border: 2px solid #ffb6c1;
-  color: #6b3f2a;
-  padding: 12px 16px;
-  border-radius: 14px;
-}
-
-/* =====================
-   CART SCROLL FIX 🔥
-===================== */
 #cart {
-  max-height: 100px;
+  max-height: 180px;
   overflow-y: auto;
 
   text-align: left;
@@ -181,6 +161,7 @@ button.active {
 /* =====================
    TEXT
 ===================== */
+
 h1 {
   color: #6b3f2a;
 }
@@ -193,30 +174,10 @@ h3, h4 {
   color: #6b3f2a;
 }
 
-h1, h2, h3, h4 {
-  margin: 8px 0;
-}
-
 /* =====================
-   INFO BOX (CARA ORDER)
+   EXTRA AESTHETIC
 ===================== */
-.info-box {
-  background: #fffdfb;
-  margin: 20px auto;
-  padding: 15px;
 
-  width: 85%;
-  max-width: 420px;
-
-  border-radius: 16px;
-  border: 1px solid #ffe0e8;
-
-  box-shadow: 0 4px 12px rgba(0,0,0,0.05);
-}
-
-/* =====================
-   EXTRA AESTHETIC ✨
-===================== */
 body::before {
   content: "☕ 🎀 🍪 ✨ 🌸";
   position: fixed;
