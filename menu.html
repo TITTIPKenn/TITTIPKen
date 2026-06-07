@@ -3,7 +3,7 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Menu Coffee</title>
+  <title>Menu Order</title>
   <link rel="stylesheet" href="style.css">
 </head>
 <body>
@@ -15,14 +15,19 @@
 
 <div id="menu" class="menu"></div>
 
-<!-- POPUP -->
+<!-- =======================
+     POPUP DETAIL MENU
+======================= -->
 <div id="popup" class="popup hidden">
+
   <div class="box">
 
     <h2 id="name"></h2>
     <p id="price"></p>
 
+    <!-- OPTIONS (DRINK ONLY) -->
     <div id="options">
+
       <p>Type</p>
       <button id="btnICE" onclick="setType('ICE')">ICE</button>
       <button id="btnHOT" onclick="setType('HOT')">HOT</button>
@@ -34,6 +39,7 @@
       <p>Sugar</p>
       <button id="btnNormal" onclick="setSugar('Normal')">Normal</button>
       <button id="btnLess" onclick="setSugar('Less')">Less</button>
+
     </div>
 
     <button onclick="addToCart()">➕ Tambah ke Keranjang</button>
@@ -49,6 +55,7 @@
     <button onclick="closeMenu()">Tutup</button>
 
   </div>
+
 </div>
 
 <script src="script.js"></script>
