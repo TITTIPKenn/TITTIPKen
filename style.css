@@ -4,7 +4,6 @@ body {
   text-align: center;
 }
 
-/* HOME */
 .home {
   margin-top: 120px;
 }
@@ -16,7 +15,6 @@ input {
   width: 220px;
 }
 
-/* MENU */
 .menu {
   display: grid;
   grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
@@ -31,7 +29,6 @@ input {
   cursor: pointer;
 }
 
-/* POPUP */
 .popup {
   position: fixed;
   top: 0;
@@ -43,7 +40,7 @@ input {
 
 .box {
   background: white;
-  margin: 80px auto;
+  margin: 60px auto;
   padding: 20px;
   width: 320px;
   border-radius: 10px;
@@ -53,17 +50,15 @@ input {
   display: none;
 }
 
-/* BUTTON */
 button {
-  padding: 8px 12px;
-  margin: 5px;
+  margin: 4px;
+  padding: 8px 10px;
   border: none;
   background: #eee;
   border-radius: 6px;
-  cursor: pointer;
 }
 
 button.active {
-  background: #333;
+  background: #222;
   color: white;
 }
