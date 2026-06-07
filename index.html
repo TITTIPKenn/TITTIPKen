@@ -12,7 +12,7 @@
   <h1>☕ Coffee Order</h1>
 
   <input id="nama" placeholder="Nama kamu">
-  <input id="lokasi" placeholder="Lokasi / cabang / alamat">
+  <input id="lokasi" placeholder="Lokasi / cabang">
 
   <button onclick="start()">Masuk Menu</button>
 </div>
@@ -23,7 +23,8 @@ function start() {
   let lokasi = document.getElementById("lokasi").value;
 
   if (!nama || !lokasi) {
-    return alert("Isi nama & lokasi dulu!");
+    alert("Isi nama & lokasi dulu!");
+    return;
   }
 
   localStorage.setItem("nama", nama);
