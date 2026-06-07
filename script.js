@@ -69,12 +69,16 @@ function openMenu(name, R, L) {
   current.Lprice = L;
 
   current.size = "R";
+  current.type = "ICE";
   current.price = R;
 
   document.getElementById("name").innerText = name;
   document.getElementById("price").innerText = "Rp" + current.price;
 
   document.getElementById("popup").classList.remove("hidden");
+
+  setType("ICE");
+  setSize("R");
 }
 
 function closeMenu() {
@@ -83,6 +87,15 @@ function closeMenu() {
 
 function setType(type) {
   current.type = type;
+
+  document.getElementById("btnICE").classList.remove("active");
+  document.getElementById("btnHOT").classList.remove("active");
+
+  if (type === "ICE") {
+    document.getElementById("btnICE").classList.add("active");
+  } else {
+    document.getElementById("btnHOT").classList.add("active");
+  }
 }
 
 function setSize(size) {
@@ -95,6 +108,15 @@ function setSize(size) {
   }
 
   document.getElementById("price").innerText = "Rp" + current.price;
+
+  document.getElementById("btnR").classList.remove("active");
+  document.getElementById("btnL").classList.remove("active");
+
+  if (size === "R") {
+    document.getElementById("btnR").classList.add("active");
+  } else {
+    document.getElementById("btnL").classList.add("active");
+  }
 }
 
 function order() {
@@ -105,7 +127,7 @@ function order() {
 📏 ${current.size}
 💰 Rp${current.price}`;
 
-  let wa = "https://wa.me/6289633016767?text=" + encodeURIComponent(msg);
+  let wa = "https://wa.me/628XXXXXXXXXX?text=" + encodeURIComponent(msg);
   window.open(wa);
 }
 
