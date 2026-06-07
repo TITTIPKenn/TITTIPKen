@@ -265,7 +265,7 @@ function checkout() {
   let total = cart.reduce((a, b) => a + b.price, 0);
   msg += `\nTOTAL: Rp${total}`;
 
-  let wa = "https://wa.me/628XXXXXXXXXX?text=" + encodeURIComponent(msg);
+  let wa = "https://wa.me/6289633016767?text=" + encodeURIComponent(msg);
   window.open(wa);
 }
 
