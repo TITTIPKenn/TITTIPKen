@@ -3,7 +3,7 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Menu Coffee Shop</title>
+  <title>Menu TITTIPKen</title>
   <link rel="stylesheet" href="style.css">
 </head>
 <body>
@@ -17,19 +17,27 @@
 <!-- POPUP -->
 <div id="popup" class="popup hidden">
   <div class="box">
+
     <h2 id="name"></h2>
     <p id="price"></p>
 
-    <button onclick="setType('ICE')">ICE</button>
-    <button onclick="setType('HOT')">HOT</button>
+    <div class="section">
+      <p>Type:</p>
+      <button id="btnICE" onclick="setType('ICE')">ICE</button>
+      <button id="btnHOT" onclick="setType('HOT')">HOT</button>
+    </div>
 
-    <button onclick="setSize('R')">REGULAR</button>
-    <button onclick="setSize('L')">LARGE</button>
+    <div class="section">
+      <p>Size:</p>
+      <button id="btnR" onclick="setSize('R')">REGULAR</button>
+      <button id="btnL" onclick="setSize('L')">LARGE</button>
+    </div>
 
-    <br><br>
+    <br>
 
     <button onclick="order()">📲 Pesan WhatsApp</button>
     <button onclick="closeMenu()">Tutup</button>
+
   </div>
 </div>
 
