@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="id">
+<html>
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -7,50 +7,57 @@
   <link rel="stylesheet" href="style.css">
 </head>
 <body>
+
 <div class="home">
+
   <div class="info-box">
     <h2>☕ Cara Order</h2>
-<p>1️⃣ Isi nama pemesan</p>
-<p>2️⃣ Isi lokasi / cabang pengambilan</p>
-<p>3️⃣ Klik tombol "Masuk Menu"</p>
-<p>4️⃣ Pilih menu yang diinginkan</p>
-<p>5️⃣ Atur ukuran, sugar, dan hot/ice</p>
-<p>6️⃣ Tambahkan ke keranjang</p>
-<p>7️⃣ Klik Checkout WhatsApp</p>
-<p>8️⃣ Tunggu konfirmasi admin</p>
-<hr>
-<p><b>🕒 Jam Operasional</b></p>
-<p>08.00 - 22.00 WIB</p>
+
+    <p>1️⃣ Isi nama pemesan</p>
+    <p>2️⃣ Isi lokasi / cabang pengambilan</p>
+    <p>3️⃣ Klik tombol START ORDER</p>
+    <p>4️⃣ Pilih menu yang diinginkan</p>
+    <p>5️⃣ Atur size, sugar, hot/ice</p>
+    <p>6️⃣ Tambahkan ke keranjang</p>
+    <p>7️⃣ Checkout WhatsApp</p>
+
+    <hr>
+
+    <p><b>🕒 Jam Operasional</b></p>
+    <p>08.00 - 22.00 WIB</p>
   </div>
+
   <h1>☕🎀 TITTIPKen 🎀☕</h1>
+
   <p class="tagline">
     🍪 Fresh Everyday • ☕ Made With Love • 🌸 Ready To Order
   </p>
 
-<input
-type=“text”
-id=“nama”
-placeholder=“Masukkan Nama Kamu”
-
-<input
-type=“text”
-id=“lokasi”
-placeholder=“Lokasi Kopi Kenangan Kamu”
+  <input id="nama" placeholder="Nama kamu">
+  <input id="lokasi" placeholder="Lokasi Kopi Kenangan Kamu">
 
   <button class="start-btn" onclick="start()">
-    Masuk Menu
+    ✨ START ORDER ✨
   </button>
+
 </div>
+
 <script>
 function start() {
   let nama = document.getElementById("nama").value.trim();
   let lokasi = document.getElementById("lokasi").value.trim();
+
   if (!nama || !lokasi) {
-    alert("Isi nama dan lokasi terlebih dahulu!");
+    alert("Isi nama & lokasi dulu ya 😭☕");
     return;
   }
+
   localStorage.setItem("nama", nama);
   localStorage.setItem("lokasi", lokasi);
+
   window.location.href = "menu.html";
 }
 </script>
+
+</body>
+</html>
