@@ -12,7 +12,7 @@ let current = {
 let cart = [];
 
 /* =========================
-   FULL MENU DATA
+   FULL MENU DATA (LENGKAP)
 ========================= */
 
 const menuData = [
@@ -119,31 +119,42 @@ function renderMenu() {
     menu.innerHTML += `<h3>${section.category}</h3>`;
 
     items.forEach(m => {
-      menu.innerHTML += `
-        <div class="card" onclick="openMenu('${m.name}', ${m.R || m.price}, ${m.L || m.price}, '${section.category}')">
-          <h4>${m.name}</h4>
-          <p>Rp${m.R || m.price}</p>
-        </div>
-      `;
+
+      // 🍪 CEMILAN = LANGSUNG ADD CART
+      if (section.category === "Cemilan") {
+        menu.innerHTML += `
+          <div class="card" onclick="addSnack('${m.name}', ${m.price})">
+            <h4>${m.name}</h4>
+            <p>Rp${m.price}</p>
+          </div>
+        `;
+      }
+
+      // ☕ MINUMAN = POPUP OPTIONS
+      else {
+        menu.innerHTML += `
+          <div class="card" onclick="openMenu('${m.name}', ${m.R}, ${m.L}, '${section.category}')">
+            <h4>${m.name}</h4>
+            <p>Rp${m.R}</p>
+          </div>
+        `;
+      }
+
     });
   });
 }
 
 /* =========================
-   OPEN POPUP
+   OPEN POPUP (MINUMAN)
 ========================= */
 
 function openMenu(name, R, L, category) {
   current.name = name;
   current.category = category;
 
-  if (category === "Cemilan") {
-    current.price = R;
-  } else {
-    current.Rprice = R;
-    current.Lprice = L;
-    current.price = R;
-  }
+  current.Rprice = R;
+  current.Lprice = L;
+  current.price = R;
 
   current.type = "ICE";
   current.size = "R";
@@ -154,60 +165,42 @@ function openMenu(name, R, L, category) {
   document.getElementById("price").innerText = "Rp" + current.price;
 
   resetButtons();
+}
+
+/* =========================
+   CEMILAN LANGSUNG ADD
+========================= */
+
+function addSnack(name, price) {
+  cart.push({
+    name: name,
+    price: price,
+    category: "Cemilan"
+  });
+
   renderCart();
 }
 
 /* =========================
-   RESET BUTTON STYLE
-========================= */
-
-function resetButtons() {
-  document.querySelectorAll("button").forEach(b => b.classList.remove("active"));
-}
-
-/* =========================
-   CLOSE POPUP
-========================= */
-
-function closeMenu() {
-  document.getElementById("popup").classList.add("hidden");
-}
-
-/* =========================
-   OPTIONS (DRINK ONLY)
+   OPTIONS MINUMAN
 ========================= */
 
 function setType(t) {
   current.type = t;
-
-  document.getElementById("btnICE").classList.remove("active");
-  document.getElementById("btnHOT").classList.remove("active");
-  document.getElementById(t === "ICE" ? "btnICE" : "btnHOT").classList.add("active");
 }
 
 function setSize(s) {
   current.size = s;
-
-  if (s === "R") current.price = current.Rprice;
-  else current.price = current.Lprice;
-
+  current.price = (s === "R") ? current.Rprice : current.Lprice;
   document.getElementById("price").innerText = "Rp" + current.price;
-
-  document.getElementById("btnR").classList.remove("active");
-  document.getElementById("btnL").classList.remove("active");
-  document.getElementById(s === "R" ? "btnR" : "btnL").classList.add("active");
 }
 
 function setSugar(s) {
   current.sugar = s;
-
-  document.getElementById("btnNormal").classList.remove("active");
-  document.getElementById("btnLess").classList.remove("active");
-  document.getElementById(s === "Normal" ? "btnNormal" : "btnLess").classList.add("active");
 }
 
 /* =========================
-   CART SYSTEM
+   ADD MINUMAN
 ========================= */
 
 function addToCart() {
@@ -215,10 +208,9 @@ function addToCart() {
   renderCart();
 }
 
-function removeItem(i) {
-  cart.splice(i, 1);
-  renderCart();
-}
+/* =========================
+   CART
+========================= */
 
 function renderCart() {
   let html = "";
@@ -227,10 +219,15 @@ function renderCart() {
   cart.forEach((item, i) => {
     total += item.price;
 
+    let detail = "";
+
+    if (item.category !== "Cemilan") {
+      detail = `(${item.type}, ${item.size}, ${item.sugar})`;
+    }
+
     html += `
       <div>
-        ${item.name} - Rp${item.price}
-        ${item.category !== "Cemilan" ? `(${item.type}, ${item.size}, ${item.sugar})` : ""}
+        ${item.name} - Rp${item.price} ${detail}
         <button onclick="removeItem(${i})">❌</button>
       </div>
     `;
@@ -240,8 +237,13 @@ function renderCart() {
   document.getElementById("total").innerText = total;
 }
 
+function removeItem(i) {
+  cart.splice(i, 1);
+  renderCart();
+}
+
 /* =========================
-   CHECKOUT WA
+   CHECKOUT
 ========================= */
 
 function checkout() {
@@ -253,20 +255,20 @@ function checkout() {
   let msg = `Nama: ${nama}\nLokasi: ${lokasi}\n\n`;
 
   cart.forEach(item => {
-    msg += `☕ ${item.name} - Rp${item.price}`;
+
+    let detail = "";
 
     if (item.category !== "Cemilan") {
-      msg += ` (${item.type}, ${item.size}, ${item.sugar})`;
+      detail = ` (${item.type}, ${item.size}, ${item.sugar})`;
     }
 
-    msg += "\n";
+    msg += `☕ ${item.name} - Rp${item.price}${detail}\n`;
   });
 
   let total = cart.reduce((a, b) => a + b.price, 0);
   msg += `\nTOTAL: Rp${total}`;
 
-  let wa = "https://wa.me/6289633016767?text=" + encodeURIComponent(msg);
-  window.open(wa);
+  window.open("https://wa.me/628XXXXXXXXXX?text=" + encodeURIComponent(msg));
 }
 
 /* =========================
