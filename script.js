@@ -1,18 +1,8 @@
-let current = {
-  name: "",
-  price: 0,
-  type: "ICE",
-  size: "R",
-  sugar: "Normal",
-  Rprice: 0,
-  Lprice: 0,
-  category: ""
-};
-
+let current = {};
 let cart = [];
 
 /* =========================
-   FULL MENU DATA (LENGKAP)
+   FULL MENU LENGKAP KAMU
 ========================= */
 
 const menuData = [
@@ -114,26 +104,22 @@ function renderMenu() {
       i.name.toLowerCase().includes(search)
     );
 
-    if (items.length === 0) return;
+    if (!items.length) return;
 
     menu.innerHTML += `<h3>${section.category}</h3>`;
 
     items.forEach(m => {
 
-      // 🍪 CEMILAN = LANGSUNG ADD CART
       if (section.category === "Cemilan") {
         menu.innerHTML += `
-          <div class="card" onclick="addSnack('${m.name}', ${m.price})">
+          <div class="card" onclick="openSnack('${m.name}', ${m.price})">
             <h4>${m.name}</h4>
             <p>Rp${m.price}</p>
           </div>
         `;
-      }
-
-      // ☕ MINUMAN = POPUP OPTIONS
-      else {
+      } else {
         menu.innerHTML += `
-          <div class="card" onclick="openMenu('${m.name}', ${m.R}, ${m.L}, '${section.category}')">
+          <div class="card" onclick="openDrink('${m.name}', ${m.R}, ${m.L}, '${section.category}')">
             <h4>${m.name}</h4>
             <p>Rp${m.R}</p>
           </div>
@@ -145,40 +131,44 @@ function renderMenu() {
 }
 
 /* =========================
-   OPEN POPUP (MINUMAN)
+   DRINK POPUP
 ========================= */
 
-function openMenu(name, R, L, category) {
-  current.name = name;
-  current.category = category;
-
-  current.Rprice = R;
-  current.Lprice = L;
-  current.price = R;
-
-  current.type = "ICE";
-  current.size = "R";
-  current.sugar = "Normal";
+function openDrink(name, R, L, category) {
+  current = {
+    name,
+    category,
+    Rprice: R,
+    Lprice: L,
+    price: R,
+    type: "ICE",
+    size: "R",
+    sugar: "Normal"
+  };
 
   document.getElementById("popup").classList.remove("hidden");
-  document.getElementById("name").innerText = name;
-  document.getElementById("price").innerText = "Rp" + current.price;
+  document.getElementById("options").style.display = "block";
 
-  resetButtons();
+  document.getElementById("name").innerText = name;
+  document.getElementById("price").innerText = "Rp" + R;
 }
 
 /* =========================
-   CEMILAN LANGSUNG ADD
+   CEMILAN POPUP SIMPLE
 ========================= */
 
-function addSnack(name, price) {
-  cart.push({
-    name: name,
-    price: price,
+function openSnack(name, price) {
+  current = {
+    name,
+    price,
     category: "Cemilan"
-  });
+  };
 
-  renderCart();
+  document.getElementById("popup").classList.remove("hidden");
+  document.getElementById("options").style.display = "none";
+
+  document.getElementById("name").innerText = name;
+  document.getElementById("price").innerText = "Rp" + price;
 }
 
 /* =========================
@@ -200,12 +190,13 @@ function setSugar(s) {
 }
 
 /* =========================
-   ADD MINUMAN
+   ADD TO CART
 ========================= */
 
 function addToCart() {
   cart.push({ ...current });
   renderCart();
+  closeMenu();
 }
 
 /* =========================
@@ -243,11 +234,19 @@ function removeItem(i) {
 }
 
 /* =========================
+   CLOSE POPUP
+========================= */
+
+function closeMenu() {
+  document.getElementById("popup").classList.add("hidden");
+}
+
+/* =========================
    CHECKOUT
 ========================= */
 
 function checkout() {
-  if (cart.length === 0) return alert("Keranjang kosong!");
+  if (!cart.length) return alert("Keranjang kosong!");
 
   let nama = localStorage.getItem("nama");
   let lokasi = localStorage.getItem("lokasi");
@@ -255,7 +254,6 @@ function checkout() {
   let msg = `Nama: ${nama}\nLokasi: ${lokasi}\n\n`;
 
   cart.forEach(item => {
-
     let detail = "";
 
     if (item.category !== "Cemilan") {
