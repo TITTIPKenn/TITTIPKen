@@ -147,6 +147,7 @@ button.active {
 
 .start-btn {
   background: linear-gradient(135deg, #ffe5ec, #ffd6a5);
+  border: 2px solid #ffb6c1;
   color: #6b3f2a;
   padding: 12px 16px;
   border-radius: 14px;
