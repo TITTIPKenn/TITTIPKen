@@ -23,10 +23,12 @@ const menuData = [
       { name: "Butterscotch Kenangan Frappe", R: 22500, L: 26500 },
       { name: "Matcha Kenangan Frappe", R: 23500, L: 27500 },
       { name: "Kopi Kenangan Mantan Frappe", R: 22500, L: 25500 },
-      { name: "Vanilla Kenangan Frappe", R: 21000, L: 24000 },
+      { name: "Vanilla Kenangan Frappe", R: 20000, L: 24000 },
       { name: "Dutch Choco Kenangan Frappe", R: 23500, L: 27500 },
+      { name: "Choco Caramel Cream Frappe", R: 17000, L: 22000 }
     ]
   },
+
   {
     category: "New Menu Kopken",
     items: [
@@ -36,80 +38,134 @@ const menuData = [
       { name: "OG Aren Speculoos", R: 19000, L: 23500 },
       { name: "Duo Shot OG Aren", R: 20000, L: 24500 },
       { name: "OG Thaitea", R: 16500, L: 19500 },
-      { name: "Thaitea loaded", R: 20500, L: 20500 },
+      { name: "Thaitea Loaded", R: 20500, L: 25500 },
       { name: "Thaitea Aren", R: 18500, L: 22500 },
-      { name: "Thaitea Coffee", R: 20000, L: 24500 },
+      { name: "Thaitea Coffee", R: 20000, L: 24500 }
     ]
   },
+
   {
     category: "Non Coffee",
     items: [
-      { name: "Butterscotch Sea Salt Crumble", R: 19000, L: 25500 },
-      { name: "Milk Oreo Crumble", R: 20000, L: 25000 },
-      { name: "Babyccino", R: 16500, L: 22000 },
-      { name: "Caramel Dutch Choco", R: 22000, L: 26000 },
-      { name: "Hazelnut Choco Milk Tea", R: 18500, L: 22500 },
-      { name: "Kenangan Milk Tea", R: 16500, L: 23000 },
-      { name: "Dutch Chocolate", R: 19000, L: 23500 },
+      { name: "Toffe Nut Choco Macchiato", R: 19000, L: 24000 },
+      { name: "Butterscotch Sea Salt Crumble", R: 18000, L: 25500 },
+      { name: "Hazelnut Choco Milk Tea", R: 18000, L: 22000 },
+      { name: "Avocado Caramel", R: 20000, L: 24000 },
+
+      { name: "Milk Oreo Crumble", R: 20000, L: 24000 },
+      { name: "Babyccino", R: 16500, L: 21000 },
+      { name: "Avocado Milk", R: 18000, L: 22000 },
+
+      { name: "Caramel Dutch Choco", R: 20000, L: 24000 },
+      { name: "Dutch Chocolate", R: 19000, L: 23000 },
+      { name: "Matcha Latte", R: 19000, L: 22500 },
+
+      { name: "Lemon Black Tea", R: 14000, L: 18000 },
+      { name: "Kenangan Milk Tea", R: 16500, L: 26000 },
       { name: "Milo Dinosaurus", R: 18000, L: 22000 },
-      { name: "Oreo Shake", R: 19500, L: 24500 },
+
+      { name: "Oreo Shake", R: 19000, L: 23000 },
       { name: "Hazelnut Dutch Choco", R: 21000, L: 25000 },
-      { name: "Lemon Black Tea", R: 14000, L: 19000 },
-      { name: "Susu Grass Jelly", R: 18000, L: 23000 },
-      { name: "Matcha Latte", R: 19000, L: 24000 },
-      { name: "Avocado Milk", R: 18000, L: 23000 },
-      { name: "Avocado Caramel", R: 20000, L: 25000 }
+      { name: "Susu Grass Jelly", R: 18000, L: 22000 },
+
+      { name: "Fresh Lemonade", R: 15500, L: 20500 },
+      { name: "Raspberry Hibiscus", R: 17000, L: 22000 },
+      { name: "Oatside Matcha Latte", R: 20000, L: 24000 }
     ]
   },
+
   {
     category: "Coffee",
     items: [
       { name: "Kopi Kenangan Mantan", R: 15000, L: 19500 },
-      { name: "Americano", R: 15000, L: 19000 },
+      { name: "Americano", R: 15000, L: 18500 },
+
       { name: "Latte", R: 17500, L: 21500 },
       { name: "Butterscotch Sea Salt Latte", R: 20500, L: 23500 },
-      { name: "Cafe Malt Latte", R: 18500, L: 22500 },
-      { name: "Kopi Susu Black Aren", R: 16500, L: 21500 },
-      { name: "Spanish Latte", R: 17000, L: 22000 },
-      { name: "Butterscotch Aren Latte", R: 17500, L: 22500 },
-      { name: "Caramel Latte", R: 19500, L: 23500 },
-      { name: "Mocha Latte", R: 20000, L: 24500 },
+
+      { name: "Cafe Malt Latte", R: 18000, L: 22000 },
+      { name: "Kopi Susu Black Aren", R: 16500, L: 21000 },
+
+      { name: "Spanish Latte", R: 16000, L: 19000 },
+      { name: "Butterscotch Aren Latte", R: 17500, L: 21500 },
+
+      { name: "Caramel Latte", R: 18500, L: 22000 },
+      { name: "Mocha Latte", R: 20000, L: 23500 },
+
+      { name: "Toffe Nut Latte", R: 17500, L: 22500 },
+      { name: "Toffe Nut Aren Latte", R: 18000, L: 23000 },
+      { name: "Toffe Nut Oat Latte", R: 17500, L: 23000 },
+
       { name: "Creamy Aren Latte", R: 18000, L: 22000 },
-      { name: "Mocha Caramel", R: 20000, L: 23500 },
+      { name: "Mocha Caramel", R: 19000, L: 21000 },
+
       { name: "Caramel Macchiato", R: 20000, L: 24000 },
       { name: "Avocado Coffee", R: 22500, L: 26000 },
+
       { name: "Cappuccino", R: 17500, L: 21500 },
-      { name: "Pistachio Aren Latte", R: 18000, L: 22500 },
-      { name: "Dua Shot Iced Shaken", R: 20000, L: 25500 },
-      { name: "Matcha Espresso", R: 19000, L: 23500 },
-      { name: "Vanilla Latte", R: 19000, L: 23500 },
-      { name: "Hazelnut Latte", R: 19500, L: 23500 }
+      { name: "Pistachio Aren Latte", R: 17500, L: 22000 },
+
+      { name: "Dua Shot Iced Shaken", R: 20000, L: 24000 },
+      { name: "Matcha Espresso", R: 19000, L: 23000 },
+
+      { name: "Vanilla Latte", R: 19000, L: 23000 },
+      { name: "Hazelnut Latte", R: 19500, L: 23000 }
     ]
   },
+
   {
     category: "Cemilan",
     items: [
-      { name: "Canele Aren", price: 13000 },
-      { name: "Aren Apple Pie", price: 15000 },
-      { name: "Choco Muffin", price: 13000 },
-      { name: "Blueberry Muffin", price: 13000 },
-      { name: "Strawberry Choux Puff", price: 12000 },
-      { name: "Chocolate Choux Puff", price: 12000 },
-      { name: "Bambang Choco Cheese", price: 13000 },
       { name: "Adam Ayam Toast", price: 14000 },
       { name: "Wahyu Sapi Toast", price: 14000 },
       { name: "Salt Bread Original", price: 11000 },
-      { name: "Canele Original", price: 12000 },
+      { name: "Salt Bread Beef & Cheese", price: 13500 },
+      { name: "Sandwich Smoked Beef", price: 17000 },
+
       { name: "Butter Croissant", price: 12000 },
       { name: "Chocolate Croissant", price: 14000 },
+      { name: "Croissant Abon", price: 14500 },
+      { name: "Dirty Croissant Milo", price: 15000 },
+
+      { name: "Roti Keju Manis", price: 9000 },
+      { name: "Roti Srikaya", price: 9000 },
+      { name: "Roti Sisir Original", price: 9000 },
+      { name: "Roti Sisir Coklat", price: 9000 },
+      { name: "Roti Susu Manis", price: 9000 },
+
+      { name: "Vanilla Choux Puff", price: 12000 },
+      { name: "Strawberry Choux Puff", price: 12000 },
+      { name: "Chocolate Choux Puff", price: 12000 },
+
+      { name: "Choco Muffin", price: 13000 },
+      { name: "Blueberry Muffin", price: 13000 },
+
+      { name: "Chocolate Donut", price: 9500 },
+      { name: "Sugar Donut", price: 8000 },
       { name: "Donut Almond", price: 12000 },
+      { name: "Donut Abon", price: 11000 },
+
       { name: "Roti Gulung Abon", price: 13500 },
       { name: "Roti Coklat Klasik", price: 8000 },
+
       { name: "Choco Chip Cookies", price: 11500 },
-      { name: "Sandwich Smoked Beef", price: 17000 },
-      { name: "Croissant Abon", price: 14000 },
       { name: "Join the Dark Side Cookie", price: 15000 },
-      { name: "Friend Chip Cookie", price: 13000 }
+      { name: "Friend Chip Cookie", price: 13000 },
+
+      { name: "Bolu Marble Cheese", price: 13000 },
+      { name: "Bolu Marble Mocca", price: 13000 },
+      { name: "Bolu Marble Chocolate", price: 13000 },
+
+      { name: "Canele Aren", price: 13000 },
+      { name: "Canele Original", price: 12000 },
+
+      { name: "Aren Apple Pie", price: 15000 },
+      { name: "Bambang Choco Cheese", price: 13000 },
+
+      { name: "Pasta Mentai", price: 19000 },
+      { name: "Pasta Indopesto", price: 18500 },
+      { name: "Thai Chicken Spaghetti", price: 18000 },
+      { name: "Spaghetti Tuna Aglio Olio", price: 18500 }
     ]
   }
 ];
