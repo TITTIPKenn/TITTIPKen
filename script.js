@@ -1,12 +1,21 @@
 let current = {
+
   name: "",
+
   price: 0,
+
   type: "",
+
   size: "",
+
   sugar: "",
+
   Rprice: 0,
+
   Lprice: 0,
+
   category: ""
+
 };
 
 let cart = [];
@@ -164,7 +173,7 @@ function renderMenu() {
 
     );
 
-    if (items.length === 0) return;
+    if (!items.length) return;
 
     menu.innerHTML += `<h3>${section.category}</h3>`;
 
@@ -172,7 +181,7 @@ function renderMenu() {
 
       let price = m.price ?? m.R;
 
-      let L = m.L ?? price;
+      let L = m.L ?? 0;
 
       menu.innerHTML += `
 
@@ -196,15 +205,15 @@ function renderMenu() {
 
 /* =========================
 
-   OPEN POPUP (CEMILAN FIXED 100%)
+   OPEN POPUP (FIX FINAL CEMILAN)
 
 ========================= */
 
 function openMenu(name, R, L, category) {
 
-  if (!R || isNaN(R)) R = 0;
+  R = Number(R) || 0;
 
-  if (!L || isNaN(L)) L = R;
+  L = Number(L) || 0;
 
   current.name = name;
 
@@ -264,7 +273,7 @@ function openMenu(name, R, L, category) {
 
 /* =========================
 
-   RESET BUTTON (SAFE POPUP ONLY)
+   RESET BUTTON
 
 ========================= */
 
@@ -298,12 +307,6 @@ function setType(t) {
 
   current.type = t;
 
-  document.getElementById("btnICE").classList.remove("active");
-
-  document.getElementById("btnHOT").classList.remove("active");
-
-  document.getElementById(t === "ICE" ? "btnICE" : "btnHOT").classList.add("active");
-
 }
 
 function setSize(s) {
@@ -314,29 +317,17 @@ function setSize(s) {
 
   document.getElementById("price").innerText = "Rp " + current.price;
 
-  document.getElementById("btnR").classList.remove("active");
-
-  document.getElementById("btnL").classList.remove("active");
-
-  document.getElementById(s === "R" ? "btnR" : "btnL").classList.add("active");
-
 }
 
 function setSugar(s) {
 
   current.sugar = s;
 
-  document.getElementById("btnNormal").classList.remove("active");
-
-  document.getElementById("btnLess").classList.remove("active");
-
-  document.getElementById(s === "Normal" ? "btnNormal" : "btnLess").classList.add("active");
-
 }
 
 /* =========================
 
-   CART
+   CART (AMAN)
 
 ========================= */
 
@@ -404,7 +395,7 @@ function renderCart() {
 
 function checkout() {
 
-  if (cart.length === 0) return alert("Keranjang kosong!");
+  if (!cart.length) return alert("Keranjang kosong!");
 
   let nama = localStorage.getItem("nama") || "-";
 
