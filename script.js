@@ -23,8 +23,8 @@ const menuData = [
       { name: "Butterscotch Kenangan Frappe", R: 22500, L: 26500 },
       { name: "Matcha Kenangan Frappe", R: 23500, L: 27500 },
       { name: "Kopi Kenangan Mantan Frappe", R: 22500, L: 25500 },
-      { name: "Vanilla Kenangan Frappe", R: 21000, L: 24000 }
-      { name: "Dutch Choco Kenangan Frappe", R: 23500, L: 27500 }
+      { name: "Vanilla Kenangan Frappe", R: 21000, L: 24000 },
+      { name: "Dutch Choco Kenangan Frappe", R: 23500, L: 27500 },
     ]
   },
   {
