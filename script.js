@@ -149,14 +149,19 @@ const menuData = [
 ========================= */
 
 function renderMenu() {
+
   let menu = document.getElementById("menu");
+
   let search = document.getElementById("search").value.toLowerCase();
 
   menu.innerHTML = "";
 
   menuData.forEach(section => {
+
     let items = section.items.filter(i =>
+
       i.name.toLowerCase().includes(search)
+
     );
 
     if (items.length === 0) return;
@@ -164,167 +169,275 @@ function renderMenu() {
     menu.innerHTML += `<h3>${section.category}</h3>`;
 
     items.forEach(m => {
+
+      let price = m.price ?? m.R;
+
+      let L = m.L ?? price;
+
       menu.innerHTML += `
+
         <div class="card"
-          onclick="openMenu('${m.name}', ${m.R || m.price}, ${m.L || m.price}, '${section.category}')">
+
+          onclick="openMenu('${m.name}', ${price}, ${L}, '${section.category}')">
+
           <h4>${m.name}</h4>
-          <p>Rp${m.R || m.price}</p>
+
+          <p>Rp${price}</p>
+
         </div>
+
       `;
+
     });
+
   });
+
 }
 
 /* =========================
-   OPEN POPUP (FIXED)
+
+   OPEN POPUP (CEMILAN FIXED 100%)
+
 ========================= */
 
 function openMenu(name, R, L, category) {
+
+  if (!R || isNaN(R)) R = 0;
+
+  if (!L || isNaN(L)) L = R;
+
   current.name = name;
+
   current.category = category;
 
   document.getElementById("popup").classList.remove("hidden");
+
   document.getElementById("name").innerText = name;
 
   resetButtons();
 
   if (category === "Cemilan") {
+
     current.price = R;
+
     current.type = "";
+
     current.size = "";
+
     current.sugar = "";
+
     current.Rprice = 0;
+
     current.Lprice = 0;
 
     document.getElementById("drinkOptions").style.display = "none";
-    document.getElementById("price").innerText = "Rp" + R;
+
+    document.getElementById("price").innerText = "Rp " + R;
 
   } else {
+
     current.Rprice = R;
+
     current.Lprice = L;
 
     current.type = "ICE";
+
     current.size = "R";
+
     current.sugar = "Normal";
+
     current.price = R;
 
     document.getElementById("drinkOptions").style.display = "block";
-    document.getElementById("price").innerText = "Rp" + R;
+
+    document.getElementById("price").innerText = "Rp " + R;
 
     setType("ICE");
+
     setSize("R");
+
     setSugar("Normal");
+
   }
+
 }
 
 /* =========================
-   RESET BUTTON SAFE
+
+   RESET BUTTON (SAFE POPUP ONLY)
+
 ========================= */
 
 function resetButtons() {
+
   document.querySelectorAll("#popup button")
+
     .forEach(b => b.classList.remove("active"));
+
 }
 
 /* =========================
+
    CLOSE POPUP
+
 ========================= */
 
 function closeMenu() {
+
   document.getElementById("popup").classList.add("hidden");
+
 }
 
 /* =========================
+
    OPTIONS
+
 ========================= */
 
 function setType(t) {
+
   current.type = t;
+
   document.getElementById("btnICE").classList.remove("active");
+
   document.getElementById("btnHOT").classList.remove("active");
+
   document.getElementById(t === "ICE" ? "btnICE" : "btnHOT").classList.add("active");
+
 }
 
 function setSize(s) {
+
   current.size = s;
+
   current.price = (s === "R") ? current.Rprice : current.Lprice;
-  document.getElementById("price").innerText = "Rp" + current.price;
+
+  document.getElementById("price").innerText = "Rp " + current.price;
 
   document.getElementById("btnR").classList.remove("active");
+
   document.getElementById("btnL").classList.remove("active");
+
   document.getElementById(s === "R" ? "btnR" : "btnL").classList.add("active");
+
 }
 
 function setSugar(s) {
+
   current.sugar = s;
+
   document.getElementById("btnNormal").classList.remove("active");
+
   document.getElementById("btnLess").classList.remove("active");
+
   document.getElementById(s === "Normal" ? "btnNormal" : "btnLess").classList.add("active");
+
 }
 
 /* =========================
+
    CART
+
 ========================= */
 
 function addToCart() {
+
   cart.push({ ...current });
+
   renderCart();
+
   closeMenu();
+
 }
 
 function removeItem(i) {
+
   cart.splice(i, 1);
+
   renderCart();
+
 }
 
 function renderCart() {
+
   let html = "";
+
   let total = 0;
 
   cart.forEach((item, i) => {
+
     total += item.price;
 
     html += `
+
       <div>
+
         ${item.name} - Rp${item.price}
-        ${item.category !== "Cemilan" ? `(${item.type}, ${item.size}, ${item.sugar})` : ""}
+
+        ${item.category !== "Cemilan"
+
+          ? `(${item.type}, ${item.size}, ${item.sugar})`
+
+          : ""
+
+        }
+
         <button onclick="removeItem(${i})">❌</button>
+
       </div>
+
     `;
+
   });
 
   document.getElementById("cart").innerHTML = html;
+
   document.getElementById("total").innerText = total;
+
 }
 
 /* =========================
+
    CHECKOUT
+
 ========================= */
 
 function checkout() {
+
   if (cart.length === 0) return alert("Keranjang kosong!");
 
   let nama = localStorage.getItem("nama") || "-";
+
   let lokasi = localStorage.getItem("lokasi") || "-";
 
   let msg = `Nama: ${nama}\nLokasi: ${lokasi}\n\n`;
 
   cart.forEach(item => {
+
     msg += `☕ ${item.name} - Rp${item.price}`;
+
     if (item.category !== "Cemilan") {
+
       msg += ` (${item.type}, ${item.size}, ${item.sugar})`;
+
     }
+
     msg += "\n";
+
   });
 
   let total = cart.reduce((a, b) => a + b.price, 0);
+
   msg += `\nTOTAL: Rp${total}`;
 
   window.open("https://wa.me/6289633016767?text=" + encodeURIComponent(msg));
+
 }
 
 /* =========================
+
    INIT
+
 ========================= */
 
 renderMenu();
