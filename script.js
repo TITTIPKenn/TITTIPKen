@@ -1,9 +1,9 @@
 let current = {
   name: "",
   price: 0,
-  type: "ICE",
-  size: "R",
-  sugar: "Normal",
+  type: "",
+  size: "",
+  sugar: "",
   Rprice: 0,
   Lprice: 0,
   category: ""
@@ -12,7 +12,7 @@ let current = {
 let cart = [];
 
 /* =========================
-   FULL MENU DATA
+   MENU DATA (FULL ORIGINAL)
 ========================= */
 
 const menuData = [
@@ -51,23 +51,18 @@ const menuData = [
       { name: "Butterscotch Sea Salt Crumble", R: 18000, L: 25500 },
       { name: "Hazelnut Choco Milk Tea", R: 18000, L: 22000 },
       { name: "Avocado Caramel", R: 20000, L: 24000 },
-
       { name: "Milk Oreo Crumble", R: 20000, L: 24000 },
       { name: "Babyccino", R: 16500, L: 21000 },
       { name: "Avocado Milk", R: 18000, L: 22000 },
-
       { name: "Caramel Dutch Choco", R: 20000, L: 24000 },
       { name: "Dutch Chocolate", R: 19000, L: 23000 },
       { name: "Matcha Latte", R: 19000, L: 22500 },
-
       { name: "Lemon Black Tea", R: 14000, L: 18000 },
       { name: "Kenangan Milk Tea", R: 16500, L: 26000 },
       { name: "Milo Dinosaurus", R: 18000, L: 22000 },
-
       { name: "Oreo Shake", R: 19000, L: 23000 },
       { name: "Hazelnut Dutch Choco", R: 21000, L: 25000 },
       { name: "Susu Grass Jelly", R: 18000, L: 22000 },
-
       { name: "Fresh Lemonade", R: 15500, L: 20500 },
       { name: "Raspberry Hibiscus", R: 17000, L: 22000 },
       { name: "Oatside Matcha Latte", R: 20000, L: 24000 }
@@ -79,35 +74,25 @@ const menuData = [
     items: [
       { name: "Kopi Kenangan Mantan", R: 15000, L: 19500 },
       { name: "Americano", R: 15000, L: 18500 },
-
       { name: "Latte", R: 17500, L: 21500 },
       { name: "Butterscotch Sea Salt Latte", R: 20500, L: 23500 },
-
       { name: "Cafe Malt Latte", R: 18000, L: 22000 },
       { name: "Kopi Susu Black Aren", R: 16500, L: 21000 },
-
       { name: "Spanish Latte", R: 16000, L: 19000 },
       { name: "Butterscotch Aren Latte", R: 17500, L: 21500 },
-
       { name: "Caramel Latte", R: 18500, L: 22000 },
       { name: "Mocha Latte", R: 20000, L: 23500 },
-
       { name: "Toffe Nut Latte", R: 17500, L: 22500 },
       { name: "Toffe Nut Aren Latte", R: 18000, L: 23000 },
       { name: "Toffe Nut Oat Latte", R: 17500, L: 23000 },
-
       { name: "Creamy Aren Latte", R: 18000, L: 22000 },
       { name: "Mocha Caramel", R: 19000, L: 21000 },
-
       { name: "Caramel Macchiato", R: 20000, L: 24000 },
       { name: "Avocado Coffee", R: 22500, L: 26000 },
-
       { name: "Cappuccino", R: 17500, L: 21500 },
       { name: "Pistachio Aren Latte", R: 17500, L: 22000 },
-
       { name: "Dua Shot Iced Shaken", R: 20000, L: 24000 },
       { name: "Matcha Espresso", R: 19000, L: 23000 },
-
       { name: "Vanilla Latte", R: 19000, L: 23000 },
       { name: "Hazelnut Latte", R: 19500, L: 23000 }
     ]
@@ -121,47 +106,36 @@ const menuData = [
       { name: "Salt Bread Original", price: 11000 },
       { name: "Salt Bread Beef & Cheese", price: 13500 },
       { name: "Sandwich Smoked Beef", price: 17000 },
-
       { name: "Butter Croissant", price: 12000 },
       { name: "Chocolate Croissant", price: 14000 },
       { name: "Croissant Abon", price: 14500 },
       { name: "Dirty Croissant Milo", price: 15000 },
-
       { name: "Roti Keju Manis", price: 9000 },
       { name: "Roti Srikaya", price: 9000 },
       { name: "Roti Sisir Original", price: 9000 },
       { name: "Roti Sisir Coklat", price: 9000 },
       { name: "Roti Susu Manis", price: 9000 },
-
       { name: "Vanilla Choux Puff", price: 12000 },
       { name: "Strawberry Choux Puff", price: 12000 },
       { name: "Chocolate Choux Puff", price: 12000 },
-
       { name: "Choco Muffin", price: 13000 },
       { name: "Blueberry Muffin", price: 13000 },
-
       { name: "Chocolate Donut", price: 9500 },
       { name: "Sugar Donut", price: 8000 },
       { name: "Donut Almond", price: 12000 },
       { name: "Donut Abon", price: 11000 },
-
       { name: "Roti Gulung Abon", price: 13500 },
       { name: "Roti Coklat Klasik", price: 8000 },
-
       { name: "Choco Chip Cookies", price: 11500 },
       { name: "Join the Dark Side Cookie", price: 15000 },
       { name: "Friend Chip Cookie", price: 13000 },
-
       { name: "Bolu Marble Cheese", price: 13000 },
       { name: "Bolu Marble Mocca", price: 13000 },
       { name: "Bolu Marble Chocolate", price: 13000 },
-
       { name: "Canele Aren", price: 13000 },
       { name: "Canele Original", price: 12000 },
-
       { name: "Aren Apple Pie", price: 15000 },
       { name: "Bambang Choco Cheese", price: 13000 },
-
       { name: "Pasta Mentai", price: 19000 },
       { name: "Pasta Indopesto", price: 18500 },
       { name: "Thai Chicken Spaghetti", price: 18000 },
@@ -191,7 +165,8 @@ function renderMenu() {
 
     items.forEach(m => {
       menu.innerHTML += `
-        <div class="card" onclick="openMenu('${m.name}', ${m.R || m.price}, ${m.L || m.price}, '${section.category}')">
+        <div class="card"
+          onclick="openMenu('${m.name}', ${m.R || m.price}, ${m.L || m.price}, '${section.category}')">
           <h4>${m.name}</h4>
           <p>Rp${m.R || m.price}</p>
         </div>
@@ -201,42 +176,54 @@ function renderMenu() {
 }
 
 /* =========================
-   OPEN POPUP
+   OPEN POPUP (FIXED)
 ========================= */
 
 function openMenu(name, R, L, category) {
   current.name = name;
   current.category = category;
 
+  document.getElementById("popup").classList.remove("hidden");
+  document.getElementById("name").innerText = name;
+
+  resetButtons();
+
   if (category === "Cemilan") {
     current.price = R;
+    current.type = "";
+    current.size = "";
+    current.sugar = "";
+    current.Rprice = 0;
+    current.Lprice = 0;
 
     document.getElementById("drinkOptions").style.display = "none";
+    document.getElementById("price").innerText = "Rp" + R;
 
   } else {
     current.Rprice = R;
     current.Lprice = L;
-    current.price = R;
 
     current.type = "ICE";
     current.size = "R";
     current.sugar = "Normal";
+    current.price = R;
 
     document.getElementById("drinkOptions").style.display = "block";
+    document.getElementById("price").innerText = "Rp" + R;
+
+    setType("ICE");
+    setSize("R");
+    setSugar("Normal");
   }
-
-  document.getElementById("popup").classList.remove("hidden");
-  document.getElementById("name").innerText = name;
-  document.getElementById("price").innerText = "Rp" + current.price;
-
-  resetButtons();
 }
+
 /* =========================
-   RESET BUTTON STYLE
+   RESET BUTTON SAFE
 ========================= */
 
 function resetButtons() {
-  document.querySelectorAll("button").forEach(b => b.classList.remove("active"));
+  document.querySelectorAll("#popup button")
+    .forEach(b => b.classList.remove("active"));
 }
 
 /* =========================
@@ -248,12 +235,11 @@ function closeMenu() {
 }
 
 /* =========================
-   OPTIONS (DRINK ONLY)
+   OPTIONS
 ========================= */
 
 function setType(t) {
   current.type = t;
-
   document.getElementById("btnICE").classList.remove("active");
   document.getElementById("btnHOT").classList.remove("active");
   document.getElementById(t === "ICE" ? "btnICE" : "btnHOT").classList.add("active");
@@ -261,10 +247,7 @@ function setType(t) {
 
 function setSize(s) {
   current.size = s;
-
-  if (s === "R") current.price = current.Rprice;
-  else current.price = current.Lprice;
-
+  current.price = (s === "R") ? current.Rprice : current.Lprice;
   document.getElementById("price").innerText = "Rp" + current.price;
 
   document.getElementById("btnR").classList.remove("active");
@@ -274,19 +257,19 @@ function setSize(s) {
 
 function setSugar(s) {
   current.sugar = s;
-
   document.getElementById("btnNormal").classList.remove("active");
   document.getElementById("btnLess").classList.remove("active");
   document.getElementById(s === "Normal" ? "btnNormal" : "btnLess").classList.add("active");
 }
 
 /* =========================
-   CART SYSTEM
+   CART
 ========================= */
 
 function addToCart() {
   cart.push({ ...current });
   renderCart();
+  closeMenu();
 }
 
 function removeItem(i) {
@@ -315,32 +298,29 @@ function renderCart() {
 }
 
 /* =========================
-   CHECKOUT WA
+   CHECKOUT
 ========================= */
 
 function checkout() {
   if (cart.length === 0) return alert("Keranjang kosong!");
 
-  let nama = localStorage.getItem("nama");
-  let lokasi = localStorage.getItem("lokasi");
+  let nama = localStorage.getItem("nama") || "-";
+  let lokasi = localStorage.getItem("lokasi") || "-";
 
   let msg = `Nama: ${nama}\nLokasi: ${lokasi}\n\n`;
 
   cart.forEach(item => {
     msg += `☕ ${item.name} - Rp${item.price}`;
-
     if (item.category !== "Cemilan") {
       msg += ` (${item.type}, ${item.size}, ${item.sugar})`;
     }
-
     msg += "\n";
   });
 
   let total = cart.reduce((a, b) => a + b.price, 0);
   msg += `\nTOTAL: Rp${total}`;
 
-  let wa = "https://wa.me/6289633016767?text=" + encodeURIComponent(msg);
-  window.open(wa);
+  window.open("https://wa.me/6289633016767?text=" + encodeURIComponent(msg));
 }
 
 /* =========================
