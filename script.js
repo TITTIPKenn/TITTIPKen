@@ -210,24 +210,27 @@ function openMenu(name, R, L, category) {
 
   if (category === "Cemilan") {
     current.price = R;
+
+    document.getElementById("drinkOptions").style.display = "none";
+
   } else {
     current.Rprice = R;
     current.Lprice = L;
     current.price = R;
-  }
 
-  current.type = "ICE";
-  current.size = "R";
-  current.sugar = "Normal";
+    current.type = "ICE";
+    current.size = "R";
+    current.sugar = "Normal";
+
+    document.getElementById("drinkOptions").style.display = "block";
+  }
 
   document.getElementById("popup").classList.remove("hidden");
   document.getElementById("name").innerText = name;
   document.getElementById("price").innerText = "Rp" + current.price;
 
   resetButtons();
-  renderCart();
 }
-
 /* =========================
    RESET BUTTON STYLE
 ========================= */
