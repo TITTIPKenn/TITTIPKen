@@ -213,14 +213,10 @@ function openMenu(name, R, L, category) {
 
   R = Number(R) || 0;
 
-  L = Number(L) || 0;
-
   current.name = name;
-
   current.category = category;
 
   document.getElementById("popup").classList.remove("hidden");
-
   document.getElementById("name").innerText = name;
 
   resetButtons();
@@ -228,47 +224,36 @@ function openMenu(name, R, L, category) {
   if (category === "Cemilan") {
 
     current.price = R;
-
     current.type = "";
-
     current.size = "";
-
     current.sugar = "";
-
     current.Rprice = 0;
-
     current.Lprice = 0;
 
     document.getElementById("drinkOptions").style.display = "none";
+    document.getElementById("cemilanInfo").style.display = "block";
 
     document.getElementById("price").innerText = "Rp " + R;
 
   } else {
 
     current.Rprice = R;
-
     current.Lprice = L;
 
     current.type = "ICE";
-
     current.size = "R";
-
     current.sugar = "Normal";
-
     current.price = R;
 
     document.getElementById("drinkOptions").style.display = "block";
+    document.getElementById("cemilanInfo").style.display = "none";
 
     document.getElementById("price").innerText = "Rp " + R;
 
     setType("ICE");
-
     setSize("R");
-
     setSugar("Normal");
-
   }
-
 }
 
 /* =========================
