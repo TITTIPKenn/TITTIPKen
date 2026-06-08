@@ -58,7 +58,7 @@ const menuData = [
     items: [
       { name: "Toffe Nut Choco Macchiato", R: 19000, L: 24000 },
       { name: "Butterscotch Sea Salt Crumble", R: 18000, L: 25500 },
-      { name: "Hazelnut Choco Milk Tea", R: 18000, L: 22000 },
+      { name: "Hazelnut Choco Milk Tea", R: 18500, L: 22500 },
       { name: "Avocado Caramel", R: 20000, L: 24000 },
       { name: "Milk Oreo Crumble", R: 20000, L: 24000 },
       { name: "Babyccino", R: 16500, L: 21000 },
@@ -87,7 +87,7 @@ const menuData = [
       { name: "Butterscotch Sea Salt Latte", R: 20500, L: 23500 },
       { name: "Cafe Malt Latte", R: 18000, L: 22000 },
       { name: "Kopi Susu Black Aren", R: 16500, L: 21000 },
-      { name: "Spanish Latte", R: 16000, L: 19000 },
+      { name: "Spanish Latte", R: 17500, L: 22000 },
       { name: "Butterscotch Aren Latte", R: 17500, L: 21500 },
       { name: "Caramel Latte", R: 18500, L: 22000 },
       { name: "Mocha Latte", R: 20000, L: 23500 },
