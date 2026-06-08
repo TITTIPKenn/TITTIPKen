@@ -23,52 +23,67 @@ const menuData = [
       { name: "Butterscotch Kenangan Frappe", R: 22500, L: 26500 },
       { name: "Matcha Kenangan Frappe", R: 23500, L: 27500 },
       { name: "Kopi Kenangan Mantan Frappe", R: 22500, L: 25500 },
-      { name: "Vanilla Kenangan Frappe", R: 20000, L: 24000 }
+      { name: "Vanilla Kenangan Frappe", R: 21000, L: 24000 }
+      { name: "Dutch Choco Kenangan Frappe", R: 23500, L: 27500 }
+    ]
+  },
+  {
+    category: "New Menu Kopken",
+    items: [
+      { name: "Tiramisu Latte", R: 18000, L: 22500 },
+      { name: "Tiramisu Mocha Latte", R: 20000, L: 24000 },
+      { name: "OG Aren Milky", R: 18000, L: 22500 },
+      { name: "OG Aren Speculoos", R: 19000, L: 23500 },
+      { name: "Duo Shot OG Aren", R: 20000, L: 24500 },
+      { name: "OG Thaitea", R: 16500, L: 19500 },
+      { name: "Thaitea loaded", R: 20500, L: 20500 },
+      { name: "Thaitea Aren", R: 18500, L: 22500 },
+      { name: "Thaitea Coffee", R: 20000, L: 24500 },
     ]
   },
   {
     category: "Non Coffee",
     items: [
-      { name: "Butterscotch Sea Salt Crumble", R: 18000, L: 25500 },
-      { name: "Milk Oreo Crumble", R: 20000, L: 24000 },
-      { name: "Babyccino", R: 16500, L: 21000 },
-      { name: "Caramel Dutch Choco", R: 20000, L: 24000 },
-      { name: "Hazelnut Choco Milk Tea", R: 18000, L: 22000 },
-      { name: "Kenangan Milk Tea", R: 16500, L: 26000 },
-      { name: "Dutch Chocolate", R: 19000, L: 23000 },
+      { name: "Butterscotch Sea Salt Crumble", R: 19000, L: 25500 },
+      { name: "Milk Oreo Crumble", R: 20000, L: 25000 },
+      { name: "Babyccino", R: 16500, L: 22000 },
+      { name: "Caramel Dutch Choco", R: 22000, L: 26000 },
+      { name: "Hazelnut Choco Milk Tea", R: 18500, L: 22500 },
+      { name: "Kenangan Milk Tea", R: 16500, L: 23000 },
+      { name: "Dutch Chocolate", R: 19000, L: 23500 },
       { name: "Milo Dinosaurus", R: 18000, L: 22000 },
-      { name: "Oreo Shake", R: 19000, L: 23000 },
+      { name: "Oreo Shake", R: 19500, L: 24500 },
       { name: "Hazelnut Dutch Choco", R: 21000, L: 25000 },
-      { name: "Lemon Black Tea", R: 14000, L: 18000 },
-      { name: "Susu Grass Jelly", R: 18000, L: 22000 },
-      { name: "Matcha Latte", R: 19000, L: 22500 },
-      { name: "Avocado Milk", R: 18000, L: 22000 },
-      { name: "Avocado Caramel", R: 20000, L: 24000 }
+      { name: "Lemon Black Tea", R: 14000, L: 19000 },
+      { name: "Susu Grass Jelly", R: 18000, L: 23000 },
+      { name: "Matcha Latte", R: 19000, L: 24000 },
+      { name: "Avocado Milk", R: 18000, L: 23000 },
+      { name: "Avocado Caramel", R: 20000, L: 25000 }
     ]
   },
   {
     category: "Coffee",
     items: [
       { name: "Kopi Kenangan Mantan", R: 15000, L: 19500 },
-      { name: "Americano", R: 15000, L: 18500 },
+      { name: "Americano", R: 15000, L: 19000 },
       { name: "Latte", R: 17500, L: 21500 },
       { name: "Butterscotch Sea Salt Latte", R: 20500, L: 23500 },
-      { name: "Cafe Malt Latte", R: 18000, L: 22000 },
-      { name: "Kopi Susu Black Aren", R: 16500, L: 21000 },
-      { name: "Spanish Latte", R: 16000, L: 19000 },
-      { name: "Butterscotch Aren Latte", R: 17500, L: 21500 },
-      { name: "Caramel Latte", R: 18500, L: 22000 },
-      { name: "Mocha Latte", R: 20000, L: 23500 },
+      { name: "Cafe Malt Latte", R: 18500, L: 22500 },
+      { name: "Kopi Susu Black Aren", R: 16500, L: 21500 },
+      { name: "Spanish Latte", R: 17000, L: 22000 },
+      { name: "Butterscotch Aren Latte", R: 17500, L: 22500 },
+      { name: "Caramel Latte", R: 19500, L: 23500 },
+      { name: "Mocha Latte", R: 20000, L: 24500 },
       { name: "Creamy Aren Latte", R: 18000, L: 22000 },
-      { name: "Mocha Caramel", R: 19000, L: 21000 },
+      { name: "Mocha Caramel", R: 20000, L: 23500 },
       { name: "Caramel Macchiato", R: 20000, L: 24000 },
       { name: "Avocado Coffee", R: 22500, L: 26000 },
       { name: "Cappuccino", R: 17500, L: 21500 },
-      { name: "Pistachio Aren Latte", R: 17500, L: 22000 },
-      { name: "Dua Shot Iced Shaken", R: 20000, L: 24000 },
-      { name: "Matcha Espresso", R: 19000, L: 23000 },
-      { name: "Vanilla Latte", R: 19000, L: 23000 },
-      { name: "Hazelnut Latte", R: 19500, L: 23000 }
+      { name: "Pistachio Aren Latte", R: 18000, L: 22500 },
+      { name: "Dua Shot Iced Shaken", R: 20000, L: 25500 },
+      { name: "Matcha Espresso", R: 19000, L: 23500 },
+      { name: "Vanilla Latte", R: 19000, L: 23500 },
+      { name: "Hazelnut Latte", R: 19500, L: 23500 }
     ]
   },
   {
