@@ -67,6 +67,16 @@ const menuData = [
     ]
   },
 
+   {
+    category: "Blueberry Series",
+    items: [
+      { name: "Blueberry Americano", R: 15000, L: 20000 },
+      { name: "Blueberry Frappe", R: 17000, L: 22000 },
+      { name: "Chocoberry Frappe", R: 19000, L: 24000 },
+      { name: "Coffeeberry Frappe", R: 18000, L: 23000 },
+    ]
+  },
+  
   {
     category: "New Menu Kopken",
     items: [
