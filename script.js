@@ -35,14 +35,14 @@ const menuData = [
       { name: "Butterscotch Sea Salt Latte", R: 20500, L: 23500 },
       { name: "Cafe Malt Latte", R: 18000, L: 21000 },
       { name: "Kopi Susu Black Aren", R: 16500, L: 19000 },
-      { name: "Spanish Latte", R: 17000, L: 20000 },
-      { name: "Butterscotch Aren Latte", R: 18500, L: 21500 },
+      { name: "Spanish Latte", R: 16500, L: 20000 },
+      { name: "Butterscotch Aren Latte", R: 17500, L: 21500 },
       { name: "Caramel Latte", R: 18500, L: 21500 },
       { name: "Mocha Latte", R: 20000, L: 23500 },
       { name: "Toffee Nut Latte", R: 17500, L: 20500 },
       { name: "Toffee Nut Aren Latte", R: 18500, L: 21500 },
       { name: "Toffee Nut Oat Latte", R: 18500, L: 21500 },
-      { name: "Creamy Aren Latte", R: 19000, L: 21000 },
+      { name: "Creamy Aren Latte", R: 18000, L: 21000 },
       { name: "Mocha Caramel", R: 19000, L: 22000 },
       { name: "Caramel Macchiato", R: 20000, L: 24000 },
       { name: "Avocado Coffee", R: 22500, L: 26500 },
@@ -83,8 +83,8 @@ const menuData = [
       { name: "Tiramisu Latte", R: 18000, L: 22500 },
       { name: "Tiramisu Mocha Latte", R: 20000, L: 24000 },
       { name: "OG Aren Milky", R: 18000, L: 22500 },
-      { name: "OG Aren Speculoos", R: 19000, L: 23500 },
-      { name: "Dua Shot OG Aren", R: 20000, L: 24500 },
+      { name: "OG Aren Speculoos", R: 17500, L: 23500 },
+      { name: "Dua Shot OG Aren", R: 19500, L: 23500 },
       { name: "OG Thaitea", R: 16500, L: 19500 },
       { name: "Thaitea Loaded", R: 20500, L: 25500 },
       { name: "Thaitea Aren", R: 18500, L: 22500 },
@@ -97,7 +97,7 @@ const menuData = [
     items: [
       { name: "Toffee Nut Choco Macchiato", R: 19000, L: 24000 },
       { name: "Butterscotch Sea Salt Crumble", R: 18000, L: 25500 },
-      { name: "Hazelnut Choco Milk Tea", R: 18500, L: 22500 },
+      { name: "Hazelnut Choco Milk Tea", R: 18000, L: 22500 },
       { name: "Avocado Caramel", R: 20000, L: 24000 },
       { name: "Milk Oreo Crumble", R: 20000, L: 25000 },
       { name: "Babycino", R: 16500, L: 22000 },
@@ -113,7 +113,7 @@ const menuData = [
       { name: "Susu Grass Jelly", R: 18000, L: 23000 },
       { name: "Fresh Lemonade", R: 15500, L: 20500 },
       { name: "Raspberry Hibiscus", R: 17000, L: 22000 },
-      { name: "Oatside Matcha Latte", R: 20000, L: 24000 }
+      { name: "Oatside Matcha Latte", R: 19500, L: 24000 }
     ]
   },
 
