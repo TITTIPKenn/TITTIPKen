@@ -364,37 +364,32 @@ function removeItem(i) {
 function renderCart() {
 
   let html = "";
-
-  let total = 0;
+  let subtotal = 0;
 
   cart.forEach((item, i) => {
 
-    total += item.price;
+    subtotal += item.price;
 
     html += `
-
       <div>
-
         ${item.name} - Rp${item.price}
-
         ${item.category !== "Cemilan"
-
           ? `(${item.type}, ${item.size}, ${item.sugar})`
-
           : ""
-
         }
-
         <button onclick="removeItem(${i})">❌</button>
-
       </div>
-
     `;
 
   });
 
-  document.getElementById("cart").innerHTML = html;
+  const percent = Number(document.getElementById("discount").value) || 0;
+  const discount = Math.round(subtotal * percent / 100);
+  const total = subtotal - discount;
 
+  document.getElementById("cart").innerHTML = html;
+  document.getElementById("subtotal").innerText = subtotal;
+  document.getElementById("discountAmount").innerText = discount;
   document.getElementById("total").innerText = total;
 
 }
@@ -429,9 +424,16 @@ function checkout() {
 
   });
 
-  let total = cart.reduce((a, b) => a + b.price, 0);
+  let subtotal = cart.reduce((a, b) => a + b.price, 0);
 
-  msg += `\nTOTAL: Rp${total}`;
+let percent = Number(document.getElementById("discount").value) || 0;
+let discount = Math.round(subtotal * percent / 100);
+let total = subtotal - discount;
+
+msg += `
+Subtotal: Rp${subtotal}
+Diskon (${percent}%): -Rp${discount}
+TOTAL: Rp${total}`;
 
   window.open("https://wa.me/6289633016767?text=" + encodeURIComponent(msg));
 
