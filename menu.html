@@ -47,9 +47,24 @@
     <hr>
 
     <h3>🛒 Keranjang</h3>
-    <div id="cart"></div>
+<div id="cart"></div>
 
-    <p>Total: Rp <span id="total">0</span></p>
+<p>
+  Diskon (%)
+  <input
+    type="number"
+    id="discount"
+    value="0"
+    min="0"
+    max="100"
+    oninput="updateCart()"
+    style="width:60px;text-align:center;margin-left:8px;"
+  >
+</p>
+
+<p>Subtotal: Rp <span id="subtotal">0</span></p>
+<p>Diskon: Rp <span id="discountAmount">0</span></p>
+<p><b>Total: Rp <span id="total">0</span></b></p>
 
     <button onclick="checkout()">Checkout WhatsApp</button>
 
