@@ -435,7 +435,7 @@ Subtotal: Rp${subtotal}
 Diskon (${percent}%): -Rp${discount}
 TOTAL: Rp${total}`;
 
-  window.open("https://wa.me/6289633016767?text=" + encodeURIComponent(msg));
+  window.open("https://chat.whatsapp.com/JU5urLr0GA0KjLzZd69ZMQ?s=cl&p=i&mlu=4" + encodeURIComponent(msg));
 
 }
 
