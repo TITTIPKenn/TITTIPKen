@@ -435,7 +435,7 @@ Subtotal: Rp${subtotal}
 Diskon (${percent}%): -Rp${discount}
 TOTAL: Rp${total}`;
 
-  window.open("https://wa.me/message/LAX2Q4CIRAMBI1" + encodeURIComponent(msg));
+  window.open("https://wa.me/6289633016767?text=" + encodeURIComponent(msg));
 
 }
 
