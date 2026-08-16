@@ -37,7 +37,7 @@ const menuData = [
       { name: "Kopi Susu Black Aren", R: 16500, L: 19000 },
       { name: "Spanish Latte", R: 16500, L: 20000 },
       { name: "Butterscotch Aren Latte", R: 17500, L: 21500 },
-      { name: "Caramel Latte", R: 18500, L: 21500 },
+      { name: "Caramel Latte", R: 18500, L: 22000 },
       { name: "Creamy Caramel Latte", R: 19000, L: 23000 },
       { name: "Mocha Latte", R: 20000, L: 23500 },
       { name: "Toffee Nut Latte", R: 17500, L: 20500 },
@@ -50,7 +50,7 @@ const menuData = [
       { name: "Cappuccino", R: 17500, L: 21500 },
       { name: "Pistachio Aren Latte", R: 15000, L: 19000 },
       { name: "Duo Shot Iced Shaken", R: 20000, L: 24000 },
-      { name: "Matcha Espresso", R: 19000, L: 23500 },
+      { name: "Matcha Espresso", R: 19000, L: 23000 },
       { name: "Vanilla Latte", R: 19000, L: 23500 },
       { name: "Hazelnut Latte", R: 19500, L: 23500 }
     ]
@@ -62,7 +62,7 @@ const menuData = [
       { name: "Choco Caramel Frappe", R: 20000, L: 25000 },
       { name: "Butterscotch Kenangan Frappe", R: 22500, L: 26500 },
       { name: "Matcha Kenangan Frappe", R: 23500, L: 27500 },
-      { name: "Kopi Kenangan Mantan Frappe", R: 20000, L: 25500 },
+      { name: "Kopi Kenangan Mantan Frappe", R: 20500, L: 25500 },
       { name: "Vanilla Kenangan Frappe", R: 21000, L: 24000 },
       { name: "Dutch Choco Kenangan Frappe", R: 23500, L: 27500 }
     ]
@@ -110,7 +110,7 @@ const menuData = [
       { name: "Dutch Chocolate", R: 19000, L: 23000 },
       { name: "Matcha Latte", R: 19000, L: 22500 },
       { name: "Lemon Black Tea", R: 14000, L: 18000 },
-      { name: "Kenangan Milk Tea", R: 16000, L: 23000 },
+      { name: "Kenangan Milk Tea", R: 16500, L: 23000 },
       { name: "Milo Dinosaurs", R: 18000, L: 22000 },
       { name: "Oreo Shake", R: 19000, L: 23000 },
       { name: "Hazelnut Dutch Choco", R: 21000, L: 25000 },
@@ -126,22 +126,25 @@ const menuData = [
     items: [
 
       { name: "Roti Susu Manis", price: 9000 },
-      { name: "Roti Coklat Klasik", price: 9000 },
+      { name: "Roti Coklat Klasik", price: 7500 },
       { name: "Roti Keju Manis", price: 10500 },
       { name: "Roti Srikaya", price: 11500 },
       { name: "Butter Croissant", price: 11000 },
       { name: "Chocolate Croissant", price: 13500 },
-      { name: "Friend-Chip Cookie", price: 12500 },
-      { name: "Join The Dark Side Cookie", price: 14500 },
+      { name: "Friend-Chip Cookie", price: 12000 },
+      { name: "Join The Dark Side Cookie", price: 15000 },
       { name: "Kenangan Toast Bambang Choco Cheese", price: 12500 },
-      { name: "Kenangan Toast Adam Ayam", price: 13500 },
-      { name: "Kenangan Toast Wahyu Sapi", price: 13500 },
+      { name: "Kenangan Toast Adam Ayam", price: 14000 },
+      { name: "Kenangan Toast Wahyu Sapi", price: 14000 },
 
       { name: "Roti Sisir Original", price: 9500 },
+      { name: "Bundlle Goodies", price: 37000 },
+      { name: "Bundlle Better Together", price: 27500 },
+      { name: "Paket Hemat 2🥐2🥤", price: 45000 },
       { name: "Roti Sisir Coklat", price: 10500 },
       { name: "Roti Sisir Keju", price: 11000 },
       { name: "Donut Pink Confetti", price: 9500 },
-      { name: "Donut Almond", price: 10500 },
+      { name: "Donut Almond", price: 11000 },
       { name: "Donut Matcha", price: 10500 },
       { name: "Donut Abon", price: 11000 },
       { name: "Roti Gulung Aren", price: 11000 },
@@ -164,18 +167,18 @@ const menuData = [
       { name: "Salt Bread Original", price: 11000 },
       { name: "Salt Bread Beef & Cheese", price: 13500 },
 
-      { name: "Chocolate Donut", price: 9500 },
-      { name: "Sugar Donut", price: 8000 },
+      { name: "Chocolate Donut", price: 10500 },
+      { name: "Sugar Donut", price: 8500 },
 
-      { name: "Vanilla Choux Puff", price: 10000 },
-      { name: "Strawberry Choux Puff", price: 10000 },
-      { name: "Chocolate Choux Puff", price: 10000 },
+      { name: "Vanilla Choux Puff", price: 10500 },
+      { name: "Strawberry Choux Puff", price: 10500 },
+      { name: "Chocolate Choux Puff", price: 10500 },
 
       { name: "Bolu Marble Cheese", price: 13000 },
       { name: "Bolu Marble Mocca", price: 13000 },
       { name: "Bolu Marble Chocolate", price: 13000 },
 
-      { name: "Choco-Chip Cookies", price: 11500 }
+      { name: "Choco-Chip Cookies", price: 11000 }
     ]
   }
 
